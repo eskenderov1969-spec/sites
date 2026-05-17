@@ -9,54 +9,69 @@
 
 <style>
 body {
-  margin:0;
+  margin: 0;
   font-family: system-ui;
   background: linear-gradient(135deg, #f8fafc, #eef2ff);
-  color:#111;
-  overflow-x: hidden; /* УБРАЛИ ГОРИЗОНТАЛЬНЫЙ ПОЛЗУНОК */
+  color: #111;
+  overflow-x: hidden;
 }
 
-/* фон */
+/* Премиум фон (без обрезаний и скролла) */
 .blob {
-  position:absolute;
-  width:400px;
-  height:400px;
-  border-radius:50%;
-  filter: blur(100px);
-  opacity:0.35;
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.25;
+  z-index: 0;
 }
 
-/* карточка */
+/* glass-карточка */
 .card {
-  background:white;
-  border-radius:20px;
-  padding:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.08);
-  transition:0.3s;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  transition: 0.3s;
 }
 
 .card:hover {
-  transform:translateY(-5px);
+  transform: translateY(-6px);
 }
 
 /* кнопки */
 .btn {
-  transition:0.3s;
+  transition: 0.3s;
 }
 .btn:hover {
-  transform:scale(1.05);
+  transform: scale(1.05);
 }
 
-/* ===== АНИМАЦИЯ ПОЯВЛЕНИЯ ===== */
+/* анимация появления */
 .fade-up {
-  opacity:0;
+  opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s ease;
 }
-
 .fade-up.show {
-  opacity:1;
+  opacity: 1;
   transform: translateY(0);
+}
+
+/* контейнер */
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* адаптив */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 18px;
+  }
 }
 </style>
 </head>
@@ -64,55 +79,60 @@ body {
 <body>
 
 <!-- фон -->
-<div class="blob" style="background:#60a5fa; top:-100px; left:-100px;"></div>
-<div class="blob" style="background:#a78bfa; bottom:-100px; right:-100px;"></div>
+<div class="blob bg-blue-400" style="top:-120px; left:-120px;"></div>
+<div class="blob bg-purple-400" style="bottom:-120px; right:-120px;"></div>
+
+<div class="container relative z-10">
 
 <!-- HEADER -->
-<header class="p-6 flex justify-between items-center relative z-10 fade-up">
-  <h1 class="text-2xl font-bold text-blue-600">Официальный сайт</h1>
+<header class="p-5 flex flex-col sm:flex-row justify-between items-center gap-3 fade-up">
+  <h1 class="text-2xl font-bold text-blue-600">Eskenderov Space</h1>
 
-  <nav class="flex gap-4 text-gray-600">
-    <a href="#about">О сайте</a>
-    <a href="#author">Об авторе</a>
-    <a href="#contact">Связаться</a>
+  <nav class="flex gap-4 text-gray-600 text-sm sm:text-base">
+    <a href="#about" class="hover:text-blue-600">О сайте</a>
+    <a href="#author" class="hover:text-blue-600">Об авторе</a>
+    <a href="#contact" class="hover:text-blue-600">Связаться</a>
   </nav>
 </header>
 
 <!-- HERO -->
-<section class="p-10 relative z-10 fade-up">
-  <h2 class="text-5xl font-bold text-gray-800"></h2>
+<section class="p-8 sm:p-12 text-center fade-up">
+  <h2 class="text-3xl sm:text-5xl font-bold text-gray-800 leading-tight">
+    Добро пожаловать
+  </h2>
 
-  <div class="mt-6 flex gap-3 flex-wrap">
-    <a href="#author" class="btn bg-blue-600 text-white px-5 py-3 rounded-xl">
+  <p class="mt-4 text-gray-500">
+    Личный сайт автора с минималистичным премиум-дизайном
+  </p>
+
+  <div class="mt-6 flex justify-center gap-3 flex-wrap">
+    <a href="#author" class="btn bg-blue-600 text-white px-6 py-3 rounded-xl">
       Об авторе
     </a>
 
-    <a href="#contact" class="btn bg-white border px-5 py-3 rounded-xl">
+    <a href="#contact" class="btn bg-white border px-6 py-3 rounded-xl">
       Связаться
     </a>
   </div>
 </section>
 
 <!-- AUTHOR -->
-<section id="author" class="p-10 relative z-10 fade-up">
-  <div class="card max-w-xl">
-
+<section id="author" class="p-6 sm:p-10 fade-up">
+  <div class="card max-w-xl mx-auto">
     <h3 class="text-xl font-bold text-blue-600">Об авторе</h3>
 
-    <p class="mt-2 text-gray-700">
+    <p class="mt-3 text-gray-700 font-medium">
       Эскендеров Эмируллах Габибулахович
     </p>
 
     <p class="text-gray-500">Студент: ДГУНХ</p>
     <p class="text-gray-500">Город: Махачкала</p>
-
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="p-10 relative z-10 fade-up">
-  <div class="card max-w-xl">
-
+<section id="contact" class="p-6 sm:p-10 fade-up">
+  <div class="card max-w-xl mx-auto">
     <h3 class="text-xl font-bold text-blue-600">Связаться</h3>
 
     <p class="mt-3 font-semibold">📞 89282185570</p>
@@ -128,32 +148,30 @@ body {
         WhatsApp
       </a>
     </div>
-
   </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="p-10 relative z-10 fade-up">
-  <div class="card max-w-2xl">
-
+<section id="about" class="p-6 sm:p-10 fade-up">
+  <div class="card max-w-2xl mx-auto">
     <h3 class="text-xl font-bold text-blue-600 mb-3">
       О сайте
     </h3>
 
     <p class="text-gray-700 leading-relaxed">
-      Рад приветствовать вас на моем личном сайте!
+      Рад приветствовать вас на моем личном сайте! Здесь собрана базовая информация и способы связи.
     </p>
-
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="p-10 text-center text-gray-600 fade-up">
-  © 2026 — Официальный сайт автора
+<footer class="p-10 text-center text-gray-500 text-sm fade-up">
+  © 2026 — Eskenderov Space
 </footer>
 
+</div>
+
 <script>
-/* Анимация появления при скролле */
 const elements = document.querySelectorAll('.fade-up');
 
 const observer = new IntersectionObserver((entries) => {
@@ -162,9 +180,7 @@ const observer = new IntersectionObserver((entries) => {
       entry.target.classList.add('show');
     }
   });
-}, {
-  threshold: 0.2
-});
+}, { threshold: 0.2 });
 
 elements.forEach(el => observer.observe(el));
 </script>
