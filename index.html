@@ -3,47 +3,37 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Official AI Site</title>
+<title>Startup AI Platform</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <style>
-body { margin:0; background:black; color:white; font-family:Arial; overflow-x:hidden; }
+body { margin:0; background:#000; color:white; font-family:system-ui; overflow-x:hidden; }
 
-/* background glow */
 .glow {
   position:absolute;
-  width:600px;
-  height:600px;
-  filter:blur(120px);
-  opacity:0.4;
+  width:700px;
+  height:700px;
+  filter:blur(140px);
+  opacity:0.35;
   border-radius:50%;
-  animation: float 8s infinite ease-in-out;
+  animation: float 10s infinite ease-in-out;
 }
 
 @keyframes float {
   0%{transform:translate(0,0)}
-  50%{transform:translate(50px,-40px)}
+  50%{transform:translate(80px,-60px)}
   100%{transform:translate(0,0)}
 }
 
-/* chat */
-#chat {
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:300px;
-  background:rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
+.card {
+  background: rgba(255,255,255,0.05);
   border:1px solid rgba(255,255,255,0.1);
-  border-radius:15px;
+  backdrop-filter: blur(10px);
+  border-radius:20px;
+  padding:20px;
 }
-
-#msgs { height:180px; overflow:auto; padding:10px; font-size:13px; }
-
-input { width:100%; padding:10px; border:none; outline:none; background:#111; color:white; }
-button { width:100%; padding:10px; background:cyan; color:black; font-weight:bold; }
 </style>
 </head>
 
@@ -54,157 +44,95 @@ button { width:100%; padding:10px; background:cyan; color:black; font-weight:bol
 <div class="glow" style="background:purple; bottom:0; right:0;"></div>
 
 <!-- HEADER -->
+<div class="p-8 flex justify-between items-center relative z-10">
+<h1 class="text-cyan-300 text-2xl font-bold">🚀 AI Startup</h1>
+
+<div class="flex gap-4">
+<a href="https://t.me/Essskenderovvv" class="text-cyan-300">Telegram</a>
+<a href="https://wa.me/79282185570" class="text-green-400">WhatsApp</a>
+</div>
+</div>
+
+<!-- HERO -->
 <div class="p-10 relative z-10">
-<h1 class="text-4xl text-cyan-300">🚀 Official AI Website</h1>
+<h2 class="text-5xl font-bold">
+AI Platform <span class="text-cyan-300">Next Generation</span>
+</h2>
 
-<p class="text-gray-400">Сайт с AI, 3D, формой и авторизацией</p>
-
-<hr class="my-5 opacity-20"/>
-
-<!-- AUTHOR -->
-<div class="p-5 bg-white/5 rounded-xl">
-<h2 class="text-cyan-300">Автор</h2>
-<p>Эскендеров Эмируллах Габибулахович</p>
-<p>📞 89282185570</p>
-<p>✈ Telegram: @Essskenderovvv</p>
-</div>
-
-<br/>
-
-<!-- AUTH -->
-<div class="p-5 bg-white/5 rounded-xl">
-<h3 class="text-cyan-300">🧠 Авторизация (локальная)</h3>
-
-<input id="user" placeholder="Логин"/>
-<input id="pass" placeholder="Пароль" type="password"/>
-
-<button onclick="login()">Войти</button>
-
-<p id="status" class="text-sm text-gray-400 mt-2"></p>
-</div>
-
-<br/>
-
-<!-- CONTACT -->
-<div class="flex gap-3 flex-wrap">
-
-<a class="px-5 py-3 bg-cyan-400 text-black rounded-xl"
-href="https://t.me/Essskenderovvv">Telegram</a>
-
-<a class="px-5 py-3 bg-green-500 text-white rounded-xl"
-href="https://wa.me/79282185570">WhatsApp</a>
-
-</div>
-
-<br/>
-
-<!-- AI CHAT -->
-<div class="p-5 bg-white/5 rounded-xl">
-<h3 class="text-cyan-300">🤖 AI Chat</h3>
-
-<div id="aiMsgs" class="h-32 overflow-auto text-sm"></div>
-
-<input id="aiInput" placeholder="Спроси AI..."/>
-<button onclick="askAI()">Отправить</button>
-
-<p class="text-xs text-gray-400 mt-2">
-⚠ Нужен API ключ (OpenAI) — сейчас демо режим
+<p class="text-gray-400 mt-4 max-w-xl">
+Полноценный стартап-интерфейс с AI, 3D и автоматизацией.
 </p>
 </div>
 
-<br/>
+<!-- GRID -->
+<div class="grid md:grid-cols-3 gap-4 p-10 relative z-10">
+
+<div class="card">
+<h3 class="text-cyan-300">🤖 AI Chat</h3>
+<p>Готово к подключению OpenAI API</p>
+</div>
+
+<div class="card">
+<h3 class="text-cyan-300">📡 CRM</h3>
+<p>Формы заявок + Telegram bot</p>
+</div>
+
+<div class="card">
+<h3 class="text-cyan-300">🧠 Auth</h3>
+<p>Локальная авторизация + сервер</p>
+</div>
+
+</div>
 
 <!-- FORM -->
-<div class="p-5 bg-white/5 rounded-xl">
-<h3 class="text-cyan-300">📡 Форма заявки (Telegram)</h3>
+<div class="p-10 relative z-10">
+<div class="card max-w-xl">
 
-<input id="name" placeholder="Имя"/>
-<textarea id="text" placeholder="Сообщение"></textarea>
+<h3 class="text-cyan-300 mb-3">📩 Заявка</h3>
 
-<button onclick="sendTelegram()">Отправить</button>
+<input id="name" placeholder="Имя" class="w-full p-2 mb-2 text-black"/>
+<textarea id="msg" placeholder="Сообщение" class="w-full p-2 text-black"></textarea>
+
+<button onclick="send()" class="mt-3 bg-cyan-400 text-black px-4 py-2 rounded-xl">
+Отправить
+</button>
+
+</div>
 </div>
 
-</div>
-
-<!-- CHAT WIDGET -->
-<div id="chat">
-<div id="msgs"></div>
-<input id="msgInput" placeholder="чат..." onkeydown="if(event.key==='Enter') addMsg()"/>
-</div>
-
-<!-- WEBGL 3D -->
-<canvas id="scene"></canvas>
+<!-- 3D BACKGROUND -->
+<canvas id="bg"></canvas>
 
 <script>
-
-/* ===== LOGIN ===== */
-function login(){
-  let u = document.getElementById('user').value;
-  let p = document.getElementById('pass').value;
-
-  if(u && p){
-    localStorage.setItem("user", u);
-    document.getElementById('status').innerText = "Вход выполнен: " + u;
-  }
+// FORM DEMO
+function send(){
+  alert("Заявка отправлена (демо)");
 }
 
-/* ===== CHAT ===== */
-function addMsg(){
-  let input = document.getElementById("msgInput");
-  let box = document.getElementById("msgs");
-
-  if(!input.value) return;
-
-  box.innerHTML += "<div>👤 " + input.value + "</div>";
-  input.value="";
-}
-
-/* ===== AI (demo) ===== */
-function askAI(){
-  let input = document.getElementById("aiInput");
-  let box = document.getElementById("aiMsgs");
-
-  let text = input.value;
-  if(!text) return;
-
-  // DEMO RESPONSE (replace with OpenAI API)
-  let answer = "AI: я получил — " + text;
-
-  box.innerHTML += "<div>🧠 " + answer + "</div>";
-  input.value="";
-}
-
-/* ===== TELEGRAM SEND (needs bot token) ===== */
-function sendTelegram(){
-  alert("Для реальной отправки нужен Telegram Bot API token");
-}
-
-/* ===== THREE JS 3D ===== */
+// THREE JS
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(75, innerWidth/innerHeight, 0.1, 1000);
 
-const renderer = new THREE.WebGLRenderer({canvas: document.getElementById("scene"), alpha:true});
-renderer.setSize(window.innerWidth, window.innerHeight);
+const renderer = new THREE.WebGLRenderer({canvas: document.getElementById("bg"), alpha:true});
+renderer.setSize(innerWidth, innerHeight);
 renderer.domElement.style.position="fixed";
 renderer.domElement.style.top="0";
-renderer.domElement.style.left="0";
 renderer.domElement.style.zIndex="-1";
 
-const geometry = new THREE.TorusGeometry(10,3,16,100);
-const material = new THREE.MeshBasicMaterial({color:0x00ffff, wireframe:true});
-const torus = new THREE.Mesh(geometry, material);
+const geo = new THREE.IcosahedronGeometry(10, 1);
+const mat = new THREE.MeshBasicMaterial({color:0x00ffff, wireframe:true});
+const mesh = new THREE.Mesh(geo, mat);
 
-scene.add(torus);
+scene.add(mesh);
 camera.position.z = 30;
 
 function animate(){
   requestAnimationFrame(animate);
-  torus.rotation.x += 0.01;
-  torus.rotation.y += 0.01;
+  mesh.rotation.x += 0.01;
+  mesh.rotation.y += 0.01;
   renderer.render(scene,camera);
 }
 animate();
-
 </script>
 
 </body>
