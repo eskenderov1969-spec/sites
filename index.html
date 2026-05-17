@@ -15,7 +15,6 @@ body {
   color:#111;
 }
 
-/* фон */
 .blob {
   position:absolute;
   width:400px;
@@ -25,7 +24,6 @@ body {
   opacity:0.35;
 }
 
-/* карточка */
 .card {
   background:white;
   border-radius:20px;
@@ -38,7 +36,6 @@ body {
   transform:translateY(-5px);
 }
 
-/* кнопки */
 .btn {
   transition:0.3s;
 }
@@ -46,7 +43,6 @@ body {
   transform:scale(1.05);
 }
 
-/* ===== АНИМАЦИЯ ПОЯВЛЕНИЯ ===== */
 .fade-up {
   opacity:0;
   transform: translateY(40px);
@@ -57,10 +53,45 @@ body {
   opacity:1;
   transform: translateY(0);
 }
+
+/* LOGIN */
+#loginPage {
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+.hidden {
+  display:none;
+}
 </style>
 </head>
 
 <body>
+
+<!-- LOGIN -->
+<div id="loginPage">
+  <div class="card w-[320px]">
+    <h2 class="text-xl font-bold text-blue-600 mb-3">Вход в личный кабинет</h2>
+
+    <input id="login" placeholder="Логин"
+      class="w-full border p-2 rounded mb-2"/>
+
+    <input id="password" type="password" placeholder="Пароль"
+      class="w-full border p-2 rounded mb-3"/>
+
+    <button onclick="loginUser()"
+      class="btn w-full bg-blue-600 text-white py-2 rounded-xl">
+      Войти
+    </button>
+
+    <p id="error" class="text-red-500 text-sm mt-2"></p>
+  </div>
+</div>
 
 <!-- фон -->
 <div class="blob" style="background:#60a5fa; top:-100px; left:-100px;"></div>
@@ -70,100 +101,116 @@ body {
 <header class="p-6 flex justify-between items-center relative z-10 fade-up">
   <h1 class="text-2xl font-bold text-blue-600">Официальный сайт</h1>
 
-  <nav class="flex gap-4 text-gray-600">
-    <a href="#about">О сайте</a>
-    <a href="#author">Об авторе</a>
-    <a href="#contact">Связаться</a>
-  </nav>
+  <button onclick="logout()" class="text-sm text-red-500">
+    Выйти
+  </button>
 </header>
 
 <!-- HERO -->
 <section class="p-10 relative z-10 fade-up">
-  <h2 class="text-5xl font-bold text-gray-800"></h2>
+  <h2 class="text-5xl font-bold text-gray-800">Eskenderov space</h2>
+</section>
 
-  <div class="mt-6 flex gap-3 flex-wrap">
-    <a href="#author" class="btn bg-blue-600 text-white px-5 py-3 rounded-xl">
-      Об авторе
-    </a>
+<!-- FILE UPLOAD CABINET -->
+<section class="p-10 relative z-10 fade-up">
+  <div class="card max-w-2xl">
 
-    <a href="#contact" class="btn bg-white border px-5 py-3 rounded-xl">
-      Связаться
-    </a>
+    <h3 class="text-xl font-bold text-blue-600 mb-3">
+      Личный кабинет — загрузка файлов
+    </h3>
+
+    <input type="file" id="fileInput" multiple class="mb-3"/>
+
+    <button onclick="uploadFiles()"
+      class="btn bg-blue-600 text-white px-4 py-2 rounded-xl">
+      Загрузить
+    </button>
+
+    <div id="gallery" class="grid grid-cols-2 gap-3 mt-5"></div>
+
   </div>
 </section>
 
-<!-- AUTHOR -->
+<!-- ORIGINAL CONTENT -->
 <section id="author" class="p-10 relative z-10 fade-up">
   <div class="card max-w-xl">
-
     <h3 class="text-xl font-bold text-blue-600">Об авторе</h3>
-
-    <p class="mt-2 text-gray-700">
-      Эскендеров Эмируллах Габибулахович
-    </p>
-
+    <p class="mt-2 text-gray-700">Эскендеров Эмируллах Габибулахович</p>
     <p class="text-gray-500">Студент: ДГУНХ</p>
     <p class="text-gray-500">Город: Махачкала</p>
-
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="p-10 relative z-10 fade-up">
   <div class="card max-w-xl">
-
     <h3 class="text-xl font-bold text-blue-600">Связаться</h3>
 
     <p class="mt-3 font-semibold">📞 89282185570</p>
 
     <div class="mt-4 flex gap-3 flex-wrap">
       <a class="btn bg-blue-500 text-white px-4 py-2 rounded-xl"
-         href="https://t.me/Essskenderovvv">
-        Telegram
-      </a>
+         href="https://t.me/Essskenderovvv">Telegram</a>
 
       <a class="btn bg-green-500 text-white px-4 py-2 rounded-xl"
-         href="https://wa.me/79282185570">
-        WhatsApp
-      </a>
+         href="https://wa.me/79282185570">WhatsApp</a>
     </div>
-
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="p-10 relative z-10 fade-up">
-  <div class="card max-w-2xl">
-
-    <h3 class="text-xl font-bold text-blue-600 mb-3">
-      О сайте
-    </h3>
-
-    <p class="text-gray-700 leading-relaxed">
-      Рад приветствовать вас на моем личном сайте!
-    </p>
-
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer class="p-10 text-center text-gray-600 fade-up">
   © 2026 — Официальный сайт автора
 </footer>
 
 <script>
-/* Анимация появления при скролле */
-const elements = document.querySelectorAll('.fade-up');
+const USER = "Eskenderov";
+const PASS = "Ee221352";
 
+function loginUser() {
+  const login = document.getElementById("login").value;
+  const password = document.getElementById("password").value;
+
+  if (login === USER && password === PASS) {
+    document.getElementById("loginPage").classList.add("hidden");
+  } else {
+    document.getElementById("error").innerText = "Неверный логин или пароль";
+  }
+}
+
+function logout() {
+  document.getElementById("loginPage").classList.remove("hidden");
+}
+
+function uploadFiles() {
+  const input = document.getElementById("fileInput");
+  const gallery = document.getElementById("gallery");
+
+  for (let file of input.files) {
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+      const div = document.createElement("div");
+      div.className = "card";
+
+      if (file.type.startsWith("image/")) {
+        div.innerHTML = `<img src="${e.target.result}" class="rounded-xl w-full"/>`;
+      } else {
+        div.innerHTML = `<p class="text-sm">${file.name}</p>`;
+      }
+
+      gallery.appendChild(div);
+    };
+
+    reader.readAsDataURL(file);
+  }
+}
+
+/* scroll animation */
+const elements = document.querySelectorAll('.fade-up');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
+    if (entry.isIntersecting) entry.target.classList.add('show');
   });
-}, {
-  threshold: 0.2
-});
+}, { threshold: 0.2 });
 
 elements.forEach(el => observer.observe(el));
 </script>
