@@ -16,7 +16,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Премиум фон (без обрезаний и скролла) */
+/* фон */
 .blob {
   position: fixed;
   width: 420px;
@@ -27,11 +27,11 @@ body {
   z-index: 0;
 }
 
-/* glass-карточка */
+/* ОДИНАКОВЫЙ СТИЛЬ ДЛЯ ВСЕХ КАРТОЧЕК */
 .card {
-  background: rgba(255,255,255,0.75);
+  background: rgba(255,255,255,0.78);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.4);
+  border: 1px solid rgba(99, 102, 241, 0.18);
   border-radius: 24px;
   padding: 24px;
   box-shadow: 0 20px 60px rgba(0,0,0,0.08);
@@ -61,17 +61,9 @@ body {
   transform: translateY(0);
 }
 
-/* контейнер */
 .container {
   max-width: 1000px;
   margin: auto;
-}
-
-/* адаптив */
-@media (max-width: 640px) {
-  h1 {
-    font-size: 18px;
-  }
 }
 </style>
 </head>
@@ -86,18 +78,18 @@ body {
 
 <!-- HEADER -->
 <header class="p-5 flex flex-col sm:flex-row justify-between items-center gap-3 fade-up">
-  <h1 class="text-2xl font-bold text-blue-600">Официальный сайт</h1>
+  <h1 class="text-2xl font-bold text-indigo-500">Eskenderov Space</h1>
 
   <nav class="flex gap-4 text-gray-600 text-sm sm:text-base">
-    <a href="#about" class="hover:text-blue-600">О сайте</a>
-    <a href="#author" class="hover:text-blue-600">Об авторе</a>
-    <a href="#contact" class="hover:text-blue-600">Связаться</a>
+    <a href="#about" class="hover:text-indigo-500">О сайте</a>
+    <a href="#author" class="hover:text-indigo-500">Об авторе</a>
+    <a href="#contact" class="hover:text-indigo-500">Связаться</a>
   </nav>
 </header>
 
 <!-- HERO -->
 <section class="p-8 sm:p-12 text-center fade-up">
-  <h2 class="text-3xl sm:text-5xl font-bold text-gray-800 leading-tight">
+  <h2 class="text-3xl sm:text-5xl font-bold text-gray-800">
     Добро пожаловать
   </h2>
 
@@ -106,7 +98,7 @@ body {
   </p>
 
   <div class="mt-6 flex justify-center gap-3 flex-wrap">
-    <a href="#author" class="btn bg-blue-600 text-white px-6 py-3 rounded-xl">
+    <a href="#author" class="btn bg-indigo-500 text-white px-6 py-3 rounded-xl">
       Об авторе
     </a>
 
@@ -119,7 +111,7 @@ body {
 <!-- AUTHOR -->
 <section id="author" class="p-6 sm:p-10 fade-up">
   <div class="card max-w-xl mx-auto">
-    <h3 class="text-xl font-bold text-blue-600">Об авторе</h3>
+    <h3 class="text-xl font-bold text-indigo-500">Об авторе</h3>
 
     <p class="mt-3 text-gray-700 font-medium">
       Эскендеров Эмируллах Габибулахович
@@ -133,17 +125,17 @@ body {
 <!-- CONTACT -->
 <section id="contact" class="p-6 sm:p-10 fade-up">
   <div class="card max-w-xl mx-auto">
-    <h3 class="text-xl font-bold text-blue-600">Связаться</h3>
+    <h3 class="text-xl font-bold text-indigo-500">Связаться</h3>
 
     <p class="mt-3 font-semibold">📞 89282185570</p>
 
     <div class="mt-4 flex gap-3 flex-wrap">
-      <a class="btn bg-blue-500 text-white px-4 py-2 rounded-xl"
+      <a class="btn bg-indigo-500 text-white px-4 py-2 rounded-xl"
          href="https://t.me/Essskenderovvv">
         Telegram
       </a>
 
-      <a class="btn bg-green-500 text-white px-4 py-2 rounded-xl"
+      <a class="btn bg-indigo-500 text-white px-4 py-2 rounded-xl"
          href="https://wa.me/79282185570">
         WhatsApp
       </a>
@@ -154,7 +146,7 @@ body {
 <!-- ABOUT -->
 <section id="about" class="p-6 sm:p-10 fade-up">
   <div class="card max-w-2xl mx-auto">
-    <h3 class="text-xl font-bold text-blue-600 mb-3">
+    <h3 class="text-xl font-bold text-indigo-500 mb-3">
       О сайте
     </h3>
 
