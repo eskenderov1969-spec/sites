@@ -14,51 +14,69 @@ body {
   background: linear-gradient(135deg, #f8fafc, #eef2ff);
   color: #111;
   overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* мягкие “Apple” переходы */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* фон */
 .blob {
   position: fixed;
-  width: 420px;
-  height: 420px;
+  width: 450px;
+  height: 450px;
   border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.25;
+  filter: blur(140px);
+  opacity: 0.22;
   z-index: 0;
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* ОДИНАКОВЫЙ СТИЛЬ ДЛЯ ВСЕХ КАРТОЧЕК */
+/* стеклянные карточки */
 .card {
-  background: rgba(255,255,255,0.78);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(99, 102, 241, 0.18);
-  border-radius: 24px;
-  padding: 24px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-  transition: 0.3s;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(99,102,241,0.15);
+  border-radius: 26px;
+  padding: 26px;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.08);
+
+  /* Apple-like smoothness */
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 35px 120px rgba(0,0,0,0.12);
 }
 
 /* кнопки */
 .btn {
-  transition: 0.3s;
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .btn:hover {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
-/* анимация появления */
-.fade-up {
+/* ===== Apple-style scroll reveal ===== */
+.reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
+  transform: translateY(60px);
+  filter: blur(10px);
+  transition:
+    opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.fade-up.show {
+
+.reveal.show {
   opacity: 1;
   transform: translateY(0);
+  filter: blur(0);
 }
 
 .container {
@@ -71,30 +89,30 @@ body {
 <body>
 
 <!-- фон -->
-<div class="blob bg-blue-400" style="top:-120px; left:-120px;"></div>
-<div class="blob bg-purple-400" style="bottom:-120px; right:-120px;"></div>
+<div class="blob bg-blue-400" id="blob1" style="top:-150px; left:-150px;"></div>
+<div class="blob bg-purple-400" id="blob2" style="bottom:-150px; right:-150px;"></div>
 
 <div class="container relative z-10">
 
 <!-- HEADER -->
-<header class="p-5 flex flex-col sm:flex-row justify-between items-center gap-3 fade-up">
+<header class="p-5 flex flex-col sm:flex-row justify-between items-center gap-3 reveal">
   <h1 class="text-2xl font-bold text-indigo-500">Eskenderov Space</h1>
 
-  <nav class="flex gap-4 text-gray-600 text-sm sm:text-base">
-    <a href="#about" class="hover:text-indigo-500">О сайте</a>
-    <a href="#author" class="hover:text-indigo-500">Об авторе</a>
-    <a href="#contact" class="hover:text-indigo-500">Связаться</a>
+  <nav class="flex gap-4 text-gray-600">
+    <a href="#about" class="hover:text-indigo-500 transition">О сайте</a>
+    <a href="#author" class="hover:text-indigo-500 transition">Об авторе</a>
+    <a href="#contact" class="hover:text-indigo-500 transition">Связаться</a>
   </nav>
 </header>
 
 <!-- HERO -->
-<section class="p-8 sm:p-12 text-center fade-up">
-  <h2 class="text-3xl sm:text-5xl font-bold text-gray-800">
+<section class="p-10 text-center reveal">
+  <h2 class="text-4xl sm:text-5xl font-bold tracking-tight">
     Добро пожаловать
   </h2>
 
   <p class="mt-4 text-gray-500">
-    Личный сайт автора с минималистичным премиум-дизайном
+    Премиальный минималистичный сайт
   </p>
 
   <div class="mt-6 flex justify-center gap-3 flex-wrap">
@@ -109,7 +127,7 @@ body {
 </section>
 
 <!-- AUTHOR -->
-<section id="author" class="p-6 sm:p-10 fade-up">
+<section id="author" class="p-8 sm:p-10 reveal">
   <div class="card max-w-xl mx-auto">
     <h3 class="text-xl font-bold text-indigo-500">Об авторе</h3>
 
@@ -123,7 +141,7 @@ body {
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="p-6 sm:p-10 fade-up">
+<section id="contact" class="p-8 sm:p-10 reveal">
   <div class="card max-w-xl mx-auto">
     <h3 class="text-xl font-bold text-indigo-500">Связаться</h3>
 
@@ -144,27 +162,28 @@ body {
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="p-6 sm:p-10 fade-up">
+<section id="about" class="p-8 sm:p-10 reveal">
   <div class="card max-w-2xl mx-auto">
     <h3 class="text-xl font-bold text-indigo-500 mb-3">
       О сайте
     </h3>
 
     <p class="text-gray-700 leading-relaxed">
-      Рад приветствовать вас на моем личном сайте! Здесь собрана базовая информация и способы связи.
+      Это современный минималистичный сайт с плавной Apple-анимацией и стеклянным дизайном.
     </p>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="p-10 text-center text-gray-500 text-sm fade-up">
+<footer class="p-10 text-center text-gray-500 text-sm reveal">
   © 2026 — Eskenderov Space
 </footer>
 
 </div>
 
 <script>
-const elements = document.querySelectorAll('.fade-up');
+/* Apple-style scroll reveal */
+const items = document.querySelectorAll('.reveal');
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -172,9 +191,20 @@ const observer = new IntersectionObserver((entries) => {
       entry.target.classList.add('show');
     }
   });
-}, { threshold: 0.2 });
+}, {
+  threshold: 0.15
+});
 
-elements.forEach(el => observer.observe(el));
+items.forEach(el => observer.observe(el));
+
+/* лёгкий параллакс фона как у Apple */
+document.addEventListener("mousemove", (e) => {
+  const x = (e.clientX / window.innerWidth - 0.5) * 30;
+  const y = (e.clientY / window.innerHeight - 0.5) * 30;
+
+  document.getElementById("blob1").style.transform = `translate(${x}px, ${y}px)`;
+  document.getElementById("blob2").style.transform = `translate(${-x}px, ${-y}px)`;
+});
 </script>
 
 </body>
