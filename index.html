@@ -9,79 +9,54 @@
 
 <style>
 body {
-  margin: 0;
+  margin:0;
   font-family: system-ui;
   background: linear-gradient(135deg, #f8fafc, #eef2ff);
-  color: #111;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-}
-
-/* мягкие “Apple” переходы */
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color:#111;
+  overflow-x: hidden; /* УБРАЛИ ГОРИЗОНТАЛЬНЫЙ ПОЛЗУНОК */
 }
 
 /* фон */
 .blob {
-  position: fixed;
-  width: 450px;
-  height: 450px;
-  border-radius: 50%;
-  filter: blur(140px);
-  opacity: 0.22;
-  z-index: 0;
-  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  position:absolute;
+  width:400px;
+  height:400px;
+  border-radius:50%;
+  filter: blur(100px);
+  opacity:0.35;
 }
 
-/* стеклянные карточки */
+/* карточка */
 .card {
-  background: rgba(255,255,255,0.75);
-  backdrop-filter: blur(18px);
-  border: 1px solid rgba(99,102,241,0.15);
-  border-radius: 26px;
-  padding: 26px;
-  box-shadow: 0 25px 80px rgba(0,0,0,0.08);
-
-  /* Apple-like smoothness */
-  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  background:white;
+  border-radius:20px;
+  padding:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  transition:0.3s;
 }
 
 .card:hover {
-  transform: translateY(-10px) scale(1.01);
-  box-shadow: 0 35px 120px rgba(0,0,0,0.12);
+  transform:translateY(-5px);
 }
 
 /* кнопки */
 .btn {
-  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:0.3s;
 }
 .btn:hover {
-  transform: scale(1.06);
+  transform:scale(1.05);
 }
 
-/* ===== Apple-style scroll reveal ===== */
-.reveal {
-  opacity: 0;
-  transform: translateY(60px);
-  filter: blur(10px);
-  transition:
-    opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+/* ===== АНИМАЦИЯ ПОЯВЛЕНИЯ ===== */
+.fade-up {
+  opacity:0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
 }
 
-.reveal.show {
-  opacity: 1;
+.fade-up.show {
+  opacity:1;
   transform: translateY(0);
-  filter: blur(0);
-}
-
-.container {
-  max-width: 1000px;
-  margin: auto;
 }
 </style>
 </head>
@@ -89,101 +64,97 @@ body {
 <body>
 
 <!-- фон -->
-<div class="blob bg-blue-400" id="blob1" style="top:-150px; left:-150px;"></div>
-<div class="blob bg-purple-400" id="blob2" style="bottom:-150px; right:-150px;"></div>
-
-<div class="container relative z-10">
+<div class="blob" style="background:#60a5fa; top:-100px; left:-100px;"></div>
+<div class="blob" style="background:#a78bfa; bottom:-100px; right:-100px;"></div>
 
 <!-- HEADER -->
-<header class="p-5 flex flex-col sm:flex-row justify-between items-center gap-3 reveal">
-  <h1 class="text-2xl font-bold text-indigo-500">Eskenderov Space</h1>
+<header class="p-6 flex justify-between items-center relative z-10 fade-up">
+  <h1 class="text-2xl font-bold text-blue-600">Официальный сайт</h1>
 
   <nav class="flex gap-4 text-gray-600">
-    <a href="#about" class="hover:text-indigo-500 transition">О сайте</a>
-    <a href="#author" class="hover:text-indigo-500 transition">Об авторе</a>
-    <a href="#contact" class="hover:text-indigo-500 transition">Связаться</a>
+    <a href="#about">О сайте</a>
+    <a href="#author">Об авторе</a>
+    <a href="#contact">Связаться</a>
   </nav>
 </header>
 
 <!-- HERO -->
-<section class="p-10 text-center reveal">
-  <h2 class="text-4xl sm:text-5xl font-bold tracking-tight">
-    Добро пожаловать
-  </h2>
+<section class="p-10 relative z-10 fade-up">
+  <h2 class="text-5xl font-bold text-gray-800"></h2>
 
-  <p class="mt-4 text-gray-500">
-    Премиальный минималистичный сайт
-  </p>
-
-  <div class="mt-6 flex justify-center gap-3 flex-wrap">
-    <a href="#author" class="btn bg-indigo-500 text-white px-6 py-3 rounded-xl">
+  <div class="mt-6 flex gap-3 flex-wrap">
+    <a href="#author" class="btn bg-blue-600 text-white px-5 py-3 rounded-xl">
       Об авторе
     </a>
 
-    <a href="#contact" class="btn bg-white border px-6 py-3 rounded-xl">
+    <a href="#contact" class="btn bg-white border px-5 py-3 rounded-xl">
       Связаться
     </a>
   </div>
 </section>
 
 <!-- AUTHOR -->
-<section id="author" class="p-8 sm:p-10 reveal">
-  <div class="card max-w-xl mx-auto">
-    <h3 class="text-xl font-bold text-indigo-500">Об авторе</h3>
+<section id="author" class="p-10 relative z-10 fade-up">
+  <div class="card max-w-xl">
 
-    <p class="mt-3 text-gray-700 font-medium">
+    <h3 class="text-xl font-bold text-blue-600">Об авторе</h3>
+
+    <p class="mt-2 text-gray-700">
       Эскендеров Эмируллах Габибулахович
     </p>
 
     <p class="text-gray-500">Студент: ДГУНХ</p>
     <p class="text-gray-500">Город: Махачкала</p>
+
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="p-8 sm:p-10 reveal">
-  <div class="card max-w-xl mx-auto">
-    <h3 class="text-xl font-bold text-indigo-500">Связаться</h3>
+<section id="contact" class="p-10 relative z-10 fade-up">
+  <div class="card max-w-xl">
+
+    <h3 class="text-xl font-bold text-blue-600">Связаться</h3>
 
     <p class="mt-3 font-semibold">📞 89282185570</p>
 
     <div class="mt-4 flex gap-3 flex-wrap">
-      <a class="btn bg-indigo-500 text-white px-4 py-2 rounded-xl"
+      <a class="btn bg-blue-500 text-white px-4 py-2 rounded-xl"
          href="https://t.me/Essskenderovvv">
         Telegram
       </a>
 
-      <a class="btn bg-indigo-500 text-white px-4 py-2 rounded-xl"
+      <a class="btn bg-green-500 text-white px-4 py-2 rounded-xl"
          href="https://wa.me/79282185570">
         WhatsApp
       </a>
     </div>
+
   </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="p-8 sm:p-10 reveal">
-  <div class="card max-w-2xl mx-auto">
-    <h3 class="text-xl font-bold text-indigo-500 mb-3">
+<section id="about" class="p-10 relative z-10 fade-up">
+  <div class="card max-w-2xl">
+
+    <h3 class="text-xl font-bold text-blue-600 mb-3">
       О сайте
     </h3>
 
     <p class="text-gray-700 leading-relaxed">
-      Это современный минималистичный сайт с плавной Apple-анимацией и стеклянным дизайном.
+      Рад приветствовать вас на моем личном сайте!
     </p>
+
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="p-10 text-center text-gray-500 text-sm reveal">
-  © 2026 — Eskenderov Space
+<footer class="p-10 text-center text-gray-600 fade-up">
+  © 2026 — Официальный сайт автора
 </footer>
 
-</div>
-
 <script>
-/* Apple-style scroll reveal */
-const items = document.querySelectorAll('.reveal');
+/* Анимация появления при скролле */
+const elements = document.querySelectorAll('.fade-up');
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -192,19 +163,10 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, {
-  threshold: 0.15
+  threshold: 0.2
 });
 
-items.forEach(el => observer.observe(el));
-
-/* лёгкий параллакс фона как у Apple */
-document.addEventListener("mousemove", (e) => {
-  const x = (e.clientX / window.innerWidth - 0.5) * 30;
-  const y = (e.clientY / window.innerHeight - 0.5) * 30;
-
-  document.getElementById("blob1").style.transform = `translate(${x}px, ${y}px)`;
-  document.getElementById("blob2").style.transform = `translate(${-x}px, ${-y}px)`;
-});
+elements.forEach(el => observer.observe(el));
 </script>
 
 </body>
