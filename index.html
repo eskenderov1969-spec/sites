@@ -1,139 +1,148 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8"/>
+<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Startup AI Platform</title>
+<title>Официальный сайт</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <style>
-body { margin:0; background:#000; color:white; font-family:system-ui; overflow-x:hidden; }
-
-.glow {
-  position:absolute;
-  width:700px;
-  height:700px;
-  filter:blur(140px);
-  opacity:0.35;
-  border-radius:50%;
-  animation: float 10s infinite ease-in-out;
+body {
+  margin:0;
+  font-family: system-ui;
+  background: linear-gradient(135deg, #f8fafc, #eef2ff);
+  color:#111;
 }
 
-@keyframes float {
-  0%{transform:translate(0,0)}
-  50%{transform:translate(80px,-60px)}
-  100%{transform:translate(0,0)}
+/* мягкие декоративные пятна */
+.blob {
+  position:absolute;
+  width:400px;
+  height:400px;
+  border-radius:50%;
+  filter: blur(100px);
+  opacity:0.4;
 }
 
 .card {
-  background: rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
+  background:white;
   border-radius:20px;
   padding:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.card:hover {
+  transform:translateY(-5px);
+}
+
+.btn {
+  transition:0.3s;
+}
+.btn:hover {
+  transform:scale(1.05);
 }
 </style>
 </head>
 
 <body>
 
-<!-- BACKGROUND -->
-<div class="glow" style="background:cyan; top:0; left:0;"></div>
-<div class="glow" style="background:purple; bottom:0; right:0;"></div>
+<!-- фон -->
+<div class="blob" style="background:#60a5fa; top:-100px; left:-100px;"></div>
+<div class="blob" style="background:#a78bfa; bottom:-100px; right:-100px;"></div>
 
 <!-- HEADER -->
-<div class="p-8 flex justify-between items-center relative z-10">
-<h1 class="text-cyan-300 text-2xl font-bold">🚀 AI Startup</h1>
+<header class="p-6 flex justify-between items-center relative z-10">
+  <h1 class="text-2xl font-bold text-blue-600">Официальный сайт</h1>
 
-<div class="flex gap-4">
-<a href="https://t.me/Essskenderovvv" class="text-cyan-300">Telegram</a>
-<a href="https://wa.me/79282185570" class="text-green-400">WhatsApp</a>
-</div>
-</div>
+  <nav class="flex gap-4 text-gray-600">
+    <a href="#about">О сайте</a>
+    <a href="#author">Автор</a>
+    <a href="#contact">Контакты</a>
+  </nav>
+</header>
 
 <!-- HERO -->
-<div class="p-10 relative z-10">
-<h2 class="text-5xl font-bold">
-AI Platform <span class="text-cyan-300">Next Generation</span>
-</h2>
+<section class="p-10 relative z-10">
+  <h2 class="text-5xl font-bold text-gray-800">
+    Современный сайт автора
+  </h2>
 
-<p class="text-gray-400 mt-4 max-w-xl">
-Полноценный стартап-интерфейс с AI, 3D и автоматизацией.
-</p>
-</div>
+  <p class="text-gray-600 mt-4 max-w-xl">
+    Чистый дизайн, быстрая загрузка и удобная структура.
+  </p>
 
-<!-- GRID -->
-<div class="grid md:grid-cols-3 gap-4 p-10 relative z-10">
+  <div class="mt-6 flex gap-3 flex-wrap">
 
-<div class="card">
-<h3 class="text-cyan-300">🤖 AI Chat</h3>
-<p>Готово к подключению OpenAI API</p>
-</div>
+    <a href="#author" class="btn bg-blue-600 text-white px-5 py-3 rounded-xl">
+      Посмотреть автора
+    </a>
 
-<div class="card">
-<h3 class="text-cyan-300">📡 CRM</h3>
-<p>Формы заявок + Telegram bot</p>
-</div>
+    <a href="#contact" class="btn bg-white border px-5 py-3 rounded-xl">
+      Контакты
+    </a>
 
-<div class="card">
-<h3 class="text-cyan-300">🧠 Auth</h3>
-<p>Локальная авторизация + сервер</p>
-</div>
+  </div>
+</section>
 
-</div>
+<!-- AUTHOR -->
+<section id="author" class="p-10 relative z-10">
+  <div class="card max-w-xl">
 
-<!-- FORM -->
-<div class="p-10 relative z-10">
-<div class="card max-w-xl">
+    <h3 class="text-xl font-bold text-blue-600">Автор</h3>
 
-<h3 class="text-cyan-300 mb-3">📩 Заявка</h3>
+    <p class="mt-2 text-gray-700">
+      Эскендеров Эмируллах Габибулахович
+    </p>
 
-<input id="name" placeholder="Имя" class="w-full p-2 mb-2 text-black"/>
-<textarea id="msg" placeholder="Сообщение" class="w-full p-2 text-black"></textarea>
+    <p class="text-gray-500">Студент ДГУНХ</p>
 
-<button onclick="send()" class="mt-3 bg-cyan-400 text-black px-4 py-2 rounded-xl">
-Отправить
-</button>
+    <p class="mt-3 font-semibold">
+      📞 89282185570
+    </p>
 
-</div>
-</div>
+    <div class="mt-4 flex gap-3 flex-wrap">
 
-<!-- 3D BACKGROUND -->
-<canvas id="bg"></canvas>
+      <a class="btn bg-blue-500 text-white px-4 py-2 rounded-xl"
+         href="https://t.me/Essskenderovvv">
+        Telegram
+      </a>
 
-<script>
-// FORM DEMO
-function send(){
-  alert("Заявка отправлена (демо)");
-}
+      <a class="btn bg-green-500 text-white px-4 py-2 rounded-xl"
+         href="https://wa.me/79282185570">
+        WhatsApp
+      </a>
 
-// THREE JS
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, innerWidth/innerHeight, 0.1, 1000);
+    </div>
 
-const renderer = new THREE.WebGLRenderer({canvas: document.getElementById("bg"), alpha:true});
-renderer.setSize(innerWidth, innerHeight);
-renderer.domElement.style.position="fixed";
-renderer.domElement.style.top="0";
-renderer.domElement.style.zIndex="-1";
+  </div>
+</section>
 
-const geo = new THREE.IcosahedronGeometry(10, 1);
-const mat = new THREE.MeshBasicMaterial({color:0x00ffff, wireframe:true});
-const mesh = new THREE.Mesh(geo, mat);
+<!-- ABOUT -->
+<section id="about" class="p-10 grid md:grid-cols-3 gap-5 relative z-10">
 
-scene.add(mesh);
-camera.position.z = 30;
+  <div class="card">
+    <h4 class="font-bold text-blue-600">✨ Чистый дизайн</h4>
+    <p class="text-gray-600">Минималистичный современный интерфейс</p>
+  </div>
 
-function animate(){
-  requestAnimationFrame(animate);
-  mesh.rotation.x += 0.01;
-  mesh.rotation.y += 0.01;
-  renderer.render(scene,camera);
-}
-animate();
-</script>
+  <div class="card">
+    <h4 class="font-bold text-blue-600">⚡ Быстрый</h4>
+    <p class="text-gray-600">Лёгкий сайт без лишнего кода</p>
+  </div>
+
+  <div class="card">
+    <h4 class="font-bold text-blue-600">📱 Адаптивный</h4>
+    <p class="text-gray-600">Работает на телефоне и ПК</p>
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+<footer id="contact" class="p-10 text-center text-gray-600">
+  © 2026 — Официальный сайт
+</footer>
 
 </body>
 </html>
