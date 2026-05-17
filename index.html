@@ -15,6 +15,7 @@ body {
   color:#111;
 }
 
+/* фон */
 .blob {
   position:absolute;
   width:400px;
@@ -24,6 +25,7 @@ body {
   opacity:0.35;
 }
 
+/* карточка */
 .card {
   background:white;
   border-radius:20px;
@@ -36,11 +38,24 @@ body {
   transform:translateY(-5px);
 }
 
+/* кнопки */
 .btn {
   transition:0.3s;
 }
 .btn:hover {
   transform:scale(1.05);
+}
+
+/* ===== АНИМАЦИЯ ПОЯВЛЕНИЯ ===== */
+.fade-up {
+  opacity:0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.fade-up.show {
+  opacity:1;
+  transform: translateY(0);
 }
 </style>
 </head>
@@ -52,7 +67,7 @@ body {
 <div class="blob" style="background:#a78bfa; bottom:-100px; right:-100px;"></div>
 
 <!-- HEADER -->
-<header class="p-6 flex justify-between items-center relative z-10">
+<header class="p-6 flex justify-between items-center relative z-10 fade-up">
   <h1 class="text-2xl font-bold text-blue-600">Официальный сайт</h1>
 
   <nav class="flex gap-4 text-gray-600">
@@ -63,12 +78,10 @@ body {
 </header>
 
 <!-- HERO -->
-<section class="p-10 relative z-10">
-  <h2 class="text-5xl font-bold text-gray-800">
-  </h2>
+<section class="p-10 relative z-10 fade-up">
+  <h2 class="text-5xl font-bold text-gray-800"></h2>
 
   <div class="mt-6 flex gap-3 flex-wrap">
-
     <a href="#author" class="btn bg-blue-600 text-white px-5 py-3 rounded-xl">
       Об авторе
     </a>
@@ -76,12 +89,11 @@ body {
     <a href="#contact" class="btn bg-white border px-5 py-3 rounded-xl">
       Связаться
     </a>
-
   </div>
 </section>
 
 <!-- AUTHOR -->
-<section id="author" class="p-10 relative z-10">
+<section id="author" class="p-10 relative z-10 fade-up">
   <div class="card max-w-xl">
 
     <h3 class="text-xl font-bold text-blue-600">Об авторе</h3>
@@ -90,29 +102,21 @@ body {
       Эскендеров Эмируллах Габибулахович
     </p>
 
-    <p class="text-gray-500">
-      Студент: ДГУНХ
-    </p>
-
-    <p class="text-gray-500">
-      Город: Махачкала
-    </p>
+    <p class="text-gray-500">Студент: ДГУНХ</p>
+    <p class="text-gray-500">Город: Махачкала</p>
 
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="p-10 relative z-10">
+<section id="contact" class="p-10 relative z-10 fade-up">
   <div class="card max-w-xl">
 
     <h3 class="text-xl font-bold text-blue-600">Связаться</h3>
 
-    <p class="mt-3 font-semibold">
-      📞 89282185570
-    </p>
+    <p class="mt-3 font-semibold">📞 89282185570</p>
 
     <div class="mt-4 flex gap-3 flex-wrap">
-
       <a class="btn bg-blue-500 text-white px-4 py-2 rounded-xl"
          href="https://t.me/Essskenderovvv">
         Telegram
@@ -122,14 +126,13 @@ body {
          href="https://wa.me/79282185570">
         WhatsApp
       </a>
-
     </div>
 
   </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="p-10 relative z-10">
+<section id="about" class="p-10 relative z-10 fade-up">
   <div class="card max-w-2xl">
 
     <h3 class="text-xl font-bold text-blue-600 mb-3">
@@ -144,9 +147,26 @@ body {
 </section>
 
 <!-- FOOTER -->
-<footer class="p-10 text-center text-gray-600">
+<footer class="p-10 text-center text-gray-600 fade-up">
   © 2026 — Официальный сайт автора
 </footer>
+
+<script>
+/* Анимация появления при скролле */
+const elements = document.querySelectorAll('.fade-up');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, {
+  threshold: 0.2
+});
+
+elements.forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
