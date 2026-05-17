@@ -15,14 +15,13 @@ body {
   color:#111;
 }
 
-/* мягкие декоративные пятна */
 .blob {
   position:absolute;
   width:400px;
   height:400px;
   border-radius:50%;
   filter: blur(100px);
-  opacity:0.4;
+  opacity:0.35;
 }
 
 .card {
@@ -66,21 +65,17 @@ body {
 <!-- HERO -->
 <section class="p-10 relative z-10">
   <h2 class="text-5xl font-bold text-gray-800">
-    Современный сайт автора
+    Персональный сайт автора
   </h2>
-
-  <p class="text-gray-600 mt-4 max-w-xl">
-    Чистый дизайн, быстрая загрузка и удобная структура.
-  </p>
 
   <div class="mt-6 flex gap-3 flex-wrap">
 
     <a href="#author" class="btn bg-blue-600 text-white px-5 py-3 rounded-xl">
-      Посмотреть автора
+      Об авторе
     </a>
 
     <a href="#contact" class="btn bg-white border px-5 py-3 rounded-xl">
-      Контакты
+      Связаться
     </a>
 
   </div>
@@ -119,29 +114,55 @@ body {
   </div>
 </section>
 
+<!-- CREATIVE SECTION -->
+<section class="p-10 relative z-10">
+
+  <div class="card max-w-2xl">
+
+    <h3 class="text-xl font-bold text-blue-600 mb-3">
+      О проекте
+    </h3>
+
+    <p class="text-gray-700 leading-relaxed">
+      Этот сайт — это цифровое пространство, созданное для представления автора в современном формате.
+      Здесь собрана основная информация, контакты и краткое представление личности в чистом и удобном интерфейсе.
+    </p>
+
+    <p class="mt-4 text-gray-700 leading-relaxed">
+      Проект выполнен в минималистичном стиле, чтобы ничто не отвлекало от главного — личности автора и быстрого доступа к связи.
+    </p>
+
+    <p class="mt-4 text-gray-600 italic">
+      “Простота — это высшая форма изящества.”
+    </p>
+
+  </div>
+
+</section>
+
 <!-- ABOUT -->
 <section id="about" class="p-10 grid md:grid-cols-3 gap-5 relative z-10">
 
   <div class="card">
-    <h4 class="font-bold text-blue-600">✨ Чистый дизайн</h4>
-    <p class="text-gray-600">Минималистичный современный интерфейс</p>
+    <h4 class="font-bold text-blue-600">✨ Эстетика</h4>
+    <p class="text-gray-600">Современный минималистичный дизайн</p>
   </div>
 
   <div class="card">
-    <h4 class="font-bold text-blue-600">⚡ Быстрый</h4>
-    <p class="text-gray-600">Лёгкий сайт без лишнего кода</p>
+    <h4 class="font-bold text-blue-600">⚡ Простота</h4>
+    <p class="text-gray-600">Быстрая и понятная структура</p>
   </div>
 
   <div class="card">
-    <h4 class="font-bold text-blue-600">📱 Адаптивный</h4>
-    <p class="text-gray-600">Работает на телефоне и ПК</p>
+    <h4 class="font-bold text-blue-600">📱 Удобство</h4>
+    <p class="text-gray-600">Идеально работает на телефоне</p>
   </div>
 
 </section>
 
 <!-- CONTACT -->
 <footer id="contact" class="p-10 text-center text-gray-600">
-  © 2026 — Официальный сайт
+  © 2026 — Официальный сайт автора
 </footer>
 
 </body>
