@@ -1,719 +1,635 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Личный premium сайт Эмируллаха Эскендерова" />
+<!-- ========================= -->
+<!-- LANGUAGE TOGGLE -->
+<!-- вставить в navbar рядом с themeToggle -->
+<!-- ========================= -->
 
-<meta name="theme-color" content="#050816">
+<button id="langToggle"
+class="bg-white/10 px-4 py-2 rounded-xl">
+EN
+</button>
 
-<title>Eskenderov Space</title>
+<!-- ========================= -->
+<!-- PORTFOLIO SECTION -->
+<!-- полностью заменить старый #portfolio -->
+<!-- ========================= -->
 
-<script src="https://cdn.tailwindcss.com"></script>
+<section id="portfolio"
+class="container py-24 fade-up">
+
+<h3
+id="portfolioTitle"
+class="text-4xl font-bold text-center gradient-text mb-14">
+Портфолио
+</h3>
+
+<!-- FILTERS -->
+
+<div class="flex flex-wrap justify-center gap-4 mb-12">
+
+<button class="filter-btn active"
+data-filter="all">
+Все
+</button>
+
+<button class="filter-btn"
+data-filter="landing">
+Landing
+</button>
+
+<button class="filter-btn"
+data-filter="portfolio">
+Portfolio
+</button>
+
+<button class="filter-btn"
+data-filter="ui">
+UI/UX
+</button>
+
+</div>
+
+<!-- SLIDER -->
+
+<div class="slider-wrapper">
+
+<button class="slider-btn left"
+id="prevSlide">
+❮
+</button>
+
+<div class="portfolio-slider"
+id="portfolioSlider">
+
+<!-- CARD -->
+
+<div class="card project-card"
+data-category="landing">
+
+<div class="preview-overlay">
+Preview
+</div>
+
+<img class="portfolio-img"
+src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop">
+
+<h4 class="text-2xl font-bold mt-6 project-title">
+Business Landing
+</h4>
+
+<p class="text-gray-400 mt-3 project-desc">
+Современный landing page с glassmorphism.
+</p>
+
+<div class="flex gap-3 mt-6">
+
+<button
+class="open-modal btn bg-white/10 px-5 py-3 rounded-xl"
+data-title="Business Landing"
+data-desc="Premium landing page with animations and modern UI."
+data-img="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop">
+Подробнее
+</button>
+
+<a href="#"
+class="btn bg-blue-600 px-5 py-3 rounded-xl">
+Live Demo
+</a>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card project-card"
+data-category="portfolio">
+
+<div class="preview-overlay">
+Preview
+</div>
+
+<img class="portfolio-img"
+src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop">
+
+<h4 class="text-2xl font-bold mt-6 project-title">
+Developer Portfolio
+</h4>
+
+<p class="text-gray-400 mt-3 project-desc">
+Персональный сайт с premium UI.
+</p>
+
+<div class="flex gap-3 mt-6">
+
+<button
+class="open-modal btn bg-white/10 px-5 py-3 rounded-xl"
+data-title="Developer Portfolio"
+data-desc="Animated personal portfolio website."
+data-img="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop">
+Подробнее
+</button>
+
+<a href="#"
+class="btn bg-blue-600 px-5 py-3 rounded-xl">
+Live Demo
+</a>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card project-card"
+data-category="ui">
+
+<div class="preview-overlay">
+Preview
+</div>
+
+<img class="portfolio-img"
+src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop">
+
+<h4 class="text-2xl font-bold mt-6 project-title">
+Creative Interface
+</h4>
+
+<p class="text-gray-400 mt-3 project-desc">
+Анимированный futuristic интерфейс.
+</p>
+
+<div class="flex gap-3 mt-6">
+
+<button
+class="open-modal btn bg-white/10 px-5 py-3 rounded-xl"
+data-title="Creative Interface"
+data-desc="Interactive futuristic dashboard concept."
+data-img="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop">
+Подробнее
+</button>
+
+<a href="#"
+class="btn bg-blue-600 px-5 py-3 rounded-xl">
+Live Demo
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<button class="slider-btn right"
+id="nextSlide">
+❯
+</button>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- MODAL -->
+<!-- вставить перед </body> -->
+<!-- ========================= -->
+
+<div id="projectModal"
+class="modal">
+
+<div class="modal-content">
+
+<button id="closeModal"
+class="close-modal">
+✕
+</button>
+
+<img id="modalImg"
+class="modal-img">
+
+<h3 id="modalTitle"
+class="text-3xl font-bold mt-6">
+</h3>
+
+<p id="modalDesc"
+class="text-gray-300 mt-4 text-lg">
+</p>
+
+<a href="#"
+class="btn bg-blue-600 px-6 py-4 rounded-2xl inline-block mt-8">
+Live Demo
+</a>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- CSS -->
+<!-- добавить в style -->
+<!-- ========================= -->
 
 <style>
 
-html {
-  scroll-behavior: smooth;
+.filter-btn {
+
+padding: 12px 22px;
+
+border-radius: 999px;
+
+background: rgba(255,255,255,0.08);
+
+border: 1px solid rgba(255,255,255,0.08);
+
+transition: 0.3s;
+
 }
 
-body {
-  margin: 0;
-  font-family: Inter, system-ui, sans-serif;
-  overflow-x: hidden;
-  background: #050816;
-  color: white;
-  transition: 0.4s;
+.filter-btn:hover,
+.filter-btn.active {
+
+background: #2563eb;
+
+transform: translateY(-2px);
+
 }
 
-body.light {
-  background: linear-gradient(135deg,#f8fafc,#eef2ff);
-  color: #111;
+.slider-wrapper {
+
+position: relative;
+
+display: flex;
+
+align-items: center;
+
+gap: 20px;
+
 }
 
-/* background */
+.portfolio-slider {
 
-.bg-grid {
-  position: fixed;
-  inset: 0;
+display: flex;
 
-  background-image:
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+gap: 30px;
 
-  background-size: 50px 50px;
-  z-index: -5;
+overflow-x: auto;
+
+scroll-behavior: smooth;
+
+padding: 10px;
+
 }
 
-.blob {
-  position: fixed;
-  width: 500px;
-  height: 500px;
-  border-radius: 9999px;
-  filter: blur(120px);
-  opacity: 0.25;
-  animation: float 12s ease-in-out infinite;
-  z-index: -4;
+.portfolio-slider::-webkit-scrollbar {
+display: none;
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(0px) translateX(0px);
-  }
+.slider-btn {
 
-  50% {
-    transform: translateY(-40px) translateX(20px);
-  }
+width: 60px;
+height: 60px;
 
-  100% {
-    transform: translateY(0px) translateX(0px);
-  }
+border-radius: 999px;
+
+border: none;
+
+background: rgba(255,255,255,0.08);
+
+font-size: 24px;
+
+cursor: pointer;
+
+transition: 0.3s;
+
 }
 
-/* navbar */
+.slider-btn:hover {
 
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 999;
+transform: scale(1.08);
 
-  backdrop-filter: blur(14px);
+background: #2563eb;
 
-  background: rgba(255,255,255,0.06);
-
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-
-  transition: 0.4s;
 }
 
-.navbar.scrolled {
-  background: rgba(5,8,22,0.82);
+.project-card {
 
-  border-bottom: 1px solid rgba(255,255,255,0.12);
+min-width: 360px;
 
-  box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+position: relative;
+
 }
 
-body.light .navbar {
-  background: rgba(255,255,255,0.65);
+.preview-overlay {
+
+position: absolute;
+inset: 0;
+
+background: rgba(0,0,0,0.7);
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+font-size: 28px;
+font-weight: bold;
+
+opacity: 0;
+
+transition: 0.4s;
+
+border-radius: 32px;
+
+z-index: 5;
+
+backdrop-filter: blur(8px);
+
 }
 
-/* premium text */
+.project-card:hover .preview-overlay {
 
-.gradient-text {
-  background: linear-gradient(
-    90deg,
-    #3b82f6,
-    #8b5cf6,
-    #ec4899
-  );
+opacity: 1;
 
-  background-size: 300% 300%;
-
-  animation: gradientMove 8s ease infinite;
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
-@keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
+.modal {
 
-  50% {
-    background-position: 100% 50%;
-  }
+position: fixed;
+inset: 0;
 
-  100% {
-    background-position: 0% 50%;
-  }
+background: rgba(0,0,0,0.8);
+
+display: none;
+
+align-items: center;
+justify-content: center;
+
+padding: 20px;
+
+z-index: 9999;
+
+backdrop-filter: blur(10px);
+
 }
 
-/* cards */
-
-.card {
-  position: relative;
-  overflow: hidden;
-
-  background: rgba(255,255,255,0.05);
-
-  backdrop-filter: blur(16px);
-
-  border: 1px solid rgba(255,255,255,0.08);
-
-  border-radius: 32px;
-
-  padding: 32px;
-
-  transition:
-    transform 0.45s ease,
-    box-shadow 0.45s ease,
-    border-color 0.45s ease;
-
-  box-shadow:
-    0 10px 40px rgba(0,0,0,0.18),
-    0 0 0 rgba(59,130,246,0);
+.modal.active {
+display: flex;
 }
 
-body.light .card {
-  background: rgba(255,255,255,0.72);
+.modal-content {
+
+max-width: 800px;
+width: 100%;
+
+background: #0f172a;
+
+border-radius: 32px;
+
+padding: 30px;
+
+position: relative;
+
+animation: modalShow 0.4s ease;
+
 }
 
-.card::before {
-  content: '';
+@keyframes modalShow {
 
-  position: absolute;
-  inset: 0;
-
-  border-radius: inherit;
-
-  padding: 1px;
-
-  background: linear-gradient(
-    135deg,
-    rgba(255,255,255,0.25),
-    transparent
-  );
-
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-
-  -webkit-mask-composite: xor;
+from {
+opacity: 0;
+transform: scale(0.9);
 }
 
-.card:hover {
-  transform: translateY(-10px);
-
-  border-color: rgba(255,255,255,0.16);
-
-  box-shadow:
-    0 30px 80px rgba(0,0,0,0.35),
-    0 0 40px rgba(59,130,246,0.12);
+to {
+opacity: 1;
+transform: scale(1);
 }
 
-/* buttons */
-
-.btn {
-  transition: 0.3s;
 }
 
-.btn:hover {
-  transform: scale(1.06);
+.modal-img {
+
+width: 100%;
+
+height: 350px;
+
+object-fit: cover;
+
+border-radius: 24px;
+
 }
 
-/* reveal animation */
+.close-modal {
 
-.fade-up {
-  opacity: 0;
-  transform: translateY(60px);
-  transition: all 1s ease;
-}
+position: absolute;
 
-.fade-up.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+top: 20px;
+right: 20px;
 
-/* skills */
+width: 45px;
+height: 45px;
 
-.skill {
-  padding: 12px 18px;
+border: none;
 
-  border-radius: 999px;
+border-radius: 999px;
 
-  background: rgba(255,255,255,0.08);
+background: rgba(255,255,255,0.1);
 
-  border: 1px solid rgba(255,255,255,0.08);
-}
+cursor: pointer;
 
-/* portfolio */
+font-size: 18px;
 
-#portfolio .card {
-  margin-top: 8px;
-}
-
-.portfolio-img {
-  border-radius: 24px;
-
-  width: 100%;
-  height: 220px;
-
-  object-fit: cover;
-
-  margin-bottom: 8px;
-}
-
-/* typewriter */
-
-.cursor {
-  animation: blink 1s infinite;
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-
-/* layout */
-
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 20px;
-}
-
-@media(max-width:768px){
-
-  .hero-title {
-    font-size: 42px;
-  }
+color: white;
 
 }
 
 </style>
-</head>
 
-<body>
-
-<div class="bg-grid"></div>
-
-<div class="blob bg-blue-500"
-     style="top:-120px;left:-120px">
-</div>
-
-<div class="blob bg-purple-500"
-     style="bottom:-120px;right:-120px">
-</div>
-
-<!-- NAVBAR -->
-
-<nav class="navbar">
-
-  <div class="container flex justify-between items-center py-5">
-
-    <h1 class="text-2xl font-bold gradient-text">
-      Eskenderov Space
-    </h1>
-
-    <div class="flex gap-6 items-center text-sm sm:text-base">
-
-      <a href="#about" class="hover:text-blue-400">
-        О сайте
-      </a>
-
-      <a href="#skills" class="hover:text-blue-400">
-        Навыки
-      </a>
-
-      <a href="#portfolio" class="hover:text-blue-400">
-        Портфолио
-      </a>
-
-      <a href="#contact" class="hover:text-blue-400">
-        Контакты
-      </a>
-
-      <button id="themeToggle"
-              class="bg-white/10 px-4 py-2 rounded-xl">
-        🌙
-      </button>
-
-    </div>
-
-  </div>
-
-</nav>
-
-<!-- HERO -->
-
-<section class="container min-h-screen flex flex-col justify-center items-center text-center fade-up">
-
-  <h2 class="hero-title text-5xl sm:text-7xl font-black leading-tight max-w-5xl">
-
-    Создаю
-
-    <span class="gradient-text">
-      современные
-    </span>
-
-    digital-проекты
-
-  </h2>
-
-  <p class="mt-8 text-lg sm:text-2xl text-gray-300 max-w-2xl">
-
-    <span id="typewriter"></span>
-
-    <span class="cursor">|</span>
-
-  </p>
-
-  <div class="mt-10 flex flex-wrap justify-center gap-4">
-
-    <a href="#portfolio"
-       class="btn bg-blue-600 hover:bg-blue-500 px-8 py-4 rounded-2xl font-semibold shadow-2xl">
-
-      Смотреть проекты
-
-    </a>
-
-    <a href="#contact"
-       class="btn bg-white/10 border border-white/10 px-8 py-4 rounded-2xl font-semibold backdrop-blur-xl">
-
-      Связаться
-
-    </a>
-
-  </div>
-
-</section>
-
-<!-- ABOUT -->
-
-<section id="about"
-         class="container py-24 fade-up">
-
-  <div class="card max-w-4xl mx-auto text-center">
-
-    <h3 class="text-4xl font-bold gradient-text mb-8">
-      Обо мне
-    </h3>
-
-    <p class="text-lg leading-relaxed text-gray-300">
-
-Привет! Меня зовут Эмир.
-Я создаю современные сайты и интерфейсы.
-В работе ценю минимализм, премиальный UI/UX и выразительную анимацию.
-
-Стремлюсь к тому, чтобы дизайн не только радовал глаз, но и решал задачи пользователей.
-Мой подход — чистая эстетика, продуманная логика и внимание к деталям.
-
-    </p>
-
-    <div class="grid sm:grid-cols-3 gap-6 mt-10">
-
-      <div>
-        <h4 class="text-3xl font-black gradient-text">
-          10+
-        </h4>
-
-        <p class="text-gray-400">
-          Проектов
-        </p>
-      </div>
-
-      <div>
-        <h4 class="text-3xl font-black gradient-text">
-          2026
-        </h4>
-
-        <p class="text-gray-400">
-          Текущий год
-        </p>
-      </div>
-
-      <div>
-        <h4 class="text-3xl font-black gradient-text">
-          24/7
-        </h4>
-
-        <p class="text-gray-400">
-          Креатив
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- SKILLS -->
-
-<section id="skills"
-         class="container py-24 fade-up">
-
-  <h3 class="text-4xl font-bold text-center gradient-text mb-14">
-    Навыки
-  </h3>
-
-  <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-
-    <div class="skill">HTML5</div>
-    <div class="skill">CSS3</div>
-    <div class="skill">JavaScript</div>
-    <div class="skill">Tailwind CSS</div>
-    <div class="skill">React</div>
-    <div class="skill">UI/UX Design</div>
-    <div class="skill">Responsive Design</div>
-    <div class="skill">Animations</div>
-    <div class="skill">Premium Interfaces</div>
-
-  </div>
-
-</section>
-
-<!-- PORTFOLIO -->
-
-<section id="portfolio"
-         class="container py-24 fade-up">
-
-  <h3 class="text-4xl font-bold text-center gradient-text mb-14">
-    Портфолио
-  </h3>
-
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 xl:gap-14">
-
-    <div class="card">
-
-      <img class="portfolio-img"
-           src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop">
-
-      <h4 class="text-2xl font-bold mt-6">
-        Business Landing
-      </h4>
-
-      <p class="text-gray-400 mt-3">
-        Современный landing page с glassmorphism.
-      </p>
-
-    </div>
-
-    <div class="card">
-
-      <img class="portfolio-img"
-           src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop">
-
-      <h4 class="text-2xl font-bold mt-6">
-        Developer Portfolio
-      </h4>
-
-      <p class="text-gray-400 mt-3">
-        Персональный сайт с premium UI.
-      </p>
-
-    </div>
-
-    <div class="card">
-
-      <img class="portfolio-img"
-           src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop">
-
-      <h4 class="text-2xl font-bold mt-6">
-        Creative Interface
-      </h4>
-
-      <p class="text-gray-400 mt-3">
-        Анимированный futuristic интерфейс.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact"
-         class="container py-24 fade-up">
-
-  <div class="card max-w-3xl mx-auto text-center">
-
-    <h3 class="text-4xl font-bold gradient-text mb-8">
-      Контакты
-    </h3>
-
-    <p class="text-xl font-semibold mb-8">
-      📞 +7 (928) 218-55-70
-    </p>
-
-    <div class="flex flex-wrap justify-center gap-4">
-
-      <a href="https://t.me/Essskenderovvv"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="btn bg-blue-500 px-6 py-4 rounded-2xl font-semibold">
-
-         Telegram
-
-      </a>
-
-      <a href="https://wa.me/79282185570"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="btn bg-green-500 px-6 py-4 rounded-2xl font-semibold">
-
-         WhatsApp
-
-      </a>
-
-      <a href="https://instagram.com/essskenderov"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="btn bg-pink-500 px-6 py-4 rounded-2xl font-semibold">
-
-         Instagram
-
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer class="container py-10 text-center text-gray-500">
-  © 2026 — Eskenderov Space
-</footer>
+<!-- ========================= -->
+<!-- JAVASCRIPT -->
+<!-- добавить в script -->
+<!-- ========================= -->
 
 <script>
 
-/* reveal animation */
+/* language */
 
-const observer = new IntersectionObserver((entries) => {
+const translations = {
 
-  entries.forEach(entry => {
+ru: {
 
-    if (entry.isIntersecting) {
+portfolio: 'Портфолио',
 
-      entry.target.classList.add('show');
+demo: 'Live Demo',
 
-      observer.unobserve(entry.target);
+details: 'Подробнее'
 
-    }
+},
 
-  });
+en: {
 
-}, {
-  threshold: 0.2
-});
+portfolio: 'Portfolio',
 
-document.querySelectorAll('.fade-up').forEach(el => {
-  observer.observe(el);
-});
+demo: 'Live Demo',
 
-/* navbar scroll */
-
-window.addEventListener('scroll', () => {
-
-  const nav = document.querySelector('.navbar');
-
-  if (window.scrollY > 40) {
-    nav.classList.add('scrolled');
-  } else {
-    nav.classList.remove('scrolled');
-  }
-
-});
-
-/* typewriter */
-
-const words = [
-
-  'Студент ДГУНХ.',
-  'Frontend-разработчик.',
-  'Создатель premium интерфейсов.',
-  'Любитель современных технологий.'
-
-];
-
-let wordIndex = 0;
-let charIndex = 0;
-
-let currentWord = '';
-
-let isDeleting = false;
-
-const typewriter = document.getElementById('typewriter');
-
-function typeEffect() {
-
-  currentWord = words[wordIndex];
-
-  if (!isDeleting) {
-
-    typewriter.textContent =
-      currentWord.substring(0, charIndex++);
-
-  } else {
-
-    typewriter.textContent =
-      currentWord.substring(0, charIndex--);
-
-  }
-
-  if (
-    !isDeleting &&
-    charIndex === currentWord.length + 1
-  ) {
-
-    isDeleting = true;
-
-    setTimeout(typeEffect, 1400);
-
-    return;
-
-  }
-
-  if (isDeleting && charIndex === 0) {
-
-    isDeleting = false;
-
-    wordIndex = (wordIndex + 1) % words.length;
-
-  }
-
-  setTimeout(typeEffect, isDeleting ? 45 : 90);
+details: 'Details'
 
 }
 
-typeEffect();
+};
 
-/* dark mode */
+let currentLang = 'ru';
 
-const toggle = document.getElementById('themeToggle');
+const langToggle =
+document.getElementById('langToggle');
 
-let lightMode = false;
+langToggle.addEventListener('click', () => {
 
-toggle.addEventListener('click', () => {
+currentLang =
+currentLang === 'ru'
+? 'en'
+: 'ru';
 
-  document.body.classList.toggle('light');
+langToggle.textContent =
+currentLang === 'ru'
+? 'EN'
+: 'RU';
 
-  lightMode = !lightMode;
-
-  toggle.textContent =
-    lightMode ? '☀️' : '🌙';
+document.getElementById(
+'portfolioTitle'
+).textContent =
+translations[currentLang].portfolio;
 
 });
 
-/* mouse parallax */
+/* slider */
 
-document.addEventListener('mousemove', (e) => {
+const slider =
+document.getElementById(
+'portfolioSlider'
+);
 
-  const blobs = document.querySelectorAll('.blob');
+document.getElementById(
+'nextSlide'
+).onclick = () => {
 
-  blobs.forEach((blob, index) => {
+slider.scrollBy({
+left: 400,
+behavior: 'smooth'
+});
 
-    const speed = (index + 1) * 25;
+};
 
-    blob.style.transform = `
-      translate(
-        ${e.clientX / speed}px,
-        ${e.clientY / speed}px
-      )
-    `;
+document.getElementById(
+'prevSlide'
+).onclick = () => {
 
-  });
+slider.scrollBy({
+left: -400,
+behavior: 'smooth'
+});
+
+};
+
+/* filter */
+
+const filterBtns =
+document.querySelectorAll('.filter-btn');
+
+const cards =
+document.querySelectorAll('.project-card');
+
+filterBtns.forEach(btn => {
+
+btn.addEventListener('click', () => {
+
+filterBtns.forEach(b =>
+b.classList.remove('active')
+);
+
+btn.classList.add('active');
+
+const filter =
+btn.dataset.filter;
+
+cards.forEach(card => {
+
+if (
+filter === 'all' ||
+card.dataset.category === filter
+) {
+
+card.style.display = 'block';
+
+} else {
+
+card.style.display = 'none';
+
+}
+
+});
+
+});
+
+});
+
+/* modal */
+
+const modal =
+document.getElementById(
+'projectModal'
+);
+
+const modalTitle =
+document.getElementById(
+'modalTitle'
+);
+
+const modalDesc =
+document.getElementById(
+'modalDesc'
+);
+
+const modalImg =
+document.getElementById(
+'modalImg'
+);
+
+document.querySelectorAll(
+'.open-modal'
+).forEach(btn => {
+
+btn.addEventListener('click', () => {
+
+modal.classList.add('active');
+
+modalTitle.textContent =
+btn.dataset.title;
+
+modalDesc.textContent =
+btn.dataset.desc;
+
+modalImg.src =
+btn.dataset.img;
+
+});
+
+});
+
+document.getElementById(
+'closeModal'
+).onclick = () => {
+
+modal.classList.remove('active');
+
+};
+
+modal.addEventListener('click', (e) => {
+
+if (e.target === modal) {
+
+modal.classList.remove('active');
+
+}
 
 });
 
 </script>
-
-</body>
-</html>
