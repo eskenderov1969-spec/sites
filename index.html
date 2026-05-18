@@ -56,18 +56,6 @@ body.light {
   100% { transform: translateY(0px) translateX(0px); }
 }
 
-/* mouse glow */
-.glow {
-  position: fixed;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(59,130,246,0.18), transparent 70%);
-  pointer-events: none;
-  z-index: -1;
-  transform: translate(-50%, -50%);
-}
-
 /* navbar */
 .navbar {
   position: sticky;
@@ -175,7 +163,7 @@ body.light .card {
 <div class="bg-grid"></div>
 <div class="blob bg-blue-500" style="top:-120px;left:-120px"></div>
 <div class="blob bg-purple-500" style="bottom:-120px;right:-120px"></div>
-<div class="glow" id="glow"></div>
+
 
 <!-- NAVBAR -->
 <nav class="navbar">
@@ -201,15 +189,6 @@ body.light .card {
 
 <!-- HERO -->
 <section class="container min-h-screen flex flex-col justify-center items-center text-center fade-up">
-
-  <div class="mb-6">
-    <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white/20 mx-auto shadow-2xl">
-      <img
-        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop"
-        class="w-full h-full object-cover"
-      />
-    </div>
-  </div>
 
   <h2 class="hero-title text-5xl sm:text-7xl font-black leading-tight max-w-5xl">
     Создаю
@@ -409,13 +388,7 @@ document.querySelectorAll('.fade-up').forEach(el => {
   observer.observe(el);
 });
 
-/* mouse glow */
-const glow = document.getElementById('glow');
 
-document.addEventListener('mousemove', (e) => {
-  glow.style.left = e.clientX + 'px';
-  glow.style.top = e.clientY + 'px';
-});
 
 /* typewriter */
 const words = [
