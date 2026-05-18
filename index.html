@@ -3,194 +3,1126 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>//https://site//</title>
+
+<title>Эмируллах Эскендеров — Portfolio</title>
+
+<meta name="description" content="Portfolio Эмируллаха Эскендерова">
 
 <script src="https://cdn.tailwindcss.com"></script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-body {
-  margin: 0;
-  font-family: system-ui;
-  background: linear-gradient(135deg, #f8fafc, #eef2ff);
-  color: #111;
-  overflow-x: hidden;
+
+html{
+scroll-behavior:smooth;
 }
 
-/* Премиум фон */
-.blob {
-  position: fixed;
-  width: 420px;
-  height: 420px;
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.25;
-  z-index: 0;
+body{
+margin:0;
+font-family:'Inter',sans-serif;
+background:#050816;
+color:white;
+overflow-x:hidden;
 }
 
-/* glass-карточка */
-.card {
-  background: rgba(255,255,255,0.75);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.4);
-  border-radius: 24px;
-  padding: 24px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-  transition: 0.3s;
+/* animated background */
+
+.gradient{
+position:fixed;
+width:700px;
+height:700px;
+border-radius:50%;
+filter:blur(120px);
+opacity:.22;
+z-index:0;
+animation:float 12s ease-in-out infinite;
 }
 
-.card:hover {
-  transform: translateY(-6px);
+.gradient:nth-child(1){
+background:#3b82f6;
+top:-200px;
+left:-200px;
 }
 
-/* кнопки */
-.btn {
-  transition: 0.3s;
+.gradient:nth-child(2){
+background:#8b5cf6;
+bottom:-200px;
+right:-200px;
+animation-delay:4s;
 }
 
-.btn:hover {
-  transform: scale(1.05);
+@keyframes float{
+0%{
+transform:translateY(0px) translateX(0px);
+}
+50%{
+transform:translateY(40px) translateX(30px);
+}
+100%{
+transform:translateY(0px) translateX(0px);
+}
 }
 
-/* анимация появления */
-.fade-up {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
+/* glass */
+
+.glass{
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 10px 40px rgba(0,0,0,.3);
 }
 
-.fade-up.show {
-  opacity: 1;
-  transform: translateY(0);
+/* reveal */
+
+.reveal{
+opacity:0;
+transform:translateY(60px);
+transition:1s;
 }
 
-/* контейнер */
-.container {
-  max-width: 1000px;
-  margin: auto;
+.reveal.active{
+opacity:1;
+transform:translateY(0);
 }
 
-/* адаптив */
-@media (max-width: 640px) {
-  h1 {
-    font-size: 18px;
-  }
+/* buttons */
+
+.btn{
+transition:.3s;
 }
+
+.btn:hover{
+transform:translateY(-4px) scale(1.03);
+box-shadow:0 10px 30px rgba(59,130,246,.4);
+}
+
+/* project card */
+
+.project{
+transition:.4s;
+}
+
+.project:hover{
+transform:translateY(-10px);
+border-color:rgba(59,130,246,.5);
+}
+
+/* skill */
+
+.skill{
+transition:.3s;
+}
+
+.skill:hover{
+transform:scale(1.06);
+background:#2563eb;
+}
+
+/* dark toggle */
+
+.toggle{
+cursor:pointer;
+}
+
+/* light mode */
+
+.light{
+background:#f5f7ff;
+color:#111827;
+}
+
+.light .glass{
+background:rgba(255,255,255,0.7);
+border:1px solid rgba(255,255,255,0.4);
+color:#111827;
+}
+
+.light nav a{
+color:#111827;
+}
+
+.light .text-gray-300{
+color:#374151;
+}
+
+.light .project{
+background:white;
+}
+
+/* mobile */
+
+@media(max-width:768px){
+
+.hero-title{
+font-size:42px;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- фон -->
-<div class="blob bg-blue-400" style="top:-120px; left:-120px;"></div>
-<div class="blob bg-purple-400" style="bottom:-120px; right:-120px;"></div>
+<div class="gradient"></div>
+<div class="gradient"></div>
 
-<div class="container relative z-10">
+<div class="relative z-10">
 
 <!-- HEADER -->
-<header class="p-5 flex flex-col sm:flex-row justify-between items-center gap-3 fade-up">
-  <h1 class="text-2xl font-bold text-blue-600">Официальный сайт</h1>
 
-  <nav class="flex gap-4 text-gray-600 text-sm sm:text-base">
-    <a href="#about" class="hover:text-blue-600">О сайте</a>
-    <a href="#author" class="hover:text-blue-600">Об авторе</a>
-    <a href="#contact" class="hover:text-blue-600">Связаться</a>
-  </nav>
+<header class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between reveal">
+
+<h1 class="text-2xl font-extrabold">
+Emirullah
+</h1>
+
+<nav class="hidden md:flex gap-8 text-sm text-gray-300">
+
+<a href="#about">Обо мне</a>
+<a href="#skills">Навыки</a>
+<a href="#projects">Проекты</a>
+<a href="#contact">Контакты</a>
+
+</nav>
+
+<button id="themeBtn"
+class="toggle glass px-4 py-2 rounded-xl text-sm">
+🌙
+</button>
+
 </header>
 
 <!-- HERO -->
-<section class="p-8 sm:p-12 text-center fade-up">
-  <h2 class="text-3xl sm:text-5xl font-bold text-gray-800 leading-tight">
-    Добро пожаловать
-  </h2>
 
-  <div class="mt-6 flex justify-center gap-3 flex-wrap">
-    <a href="#author" class="btn bg-blue-600 text-white px-6 py-3 rounded-xl">
-      Об авторе
-    </a>
+<section class="min-h-screen flex items-center px-6">
 
-    <a href="#contact" class="btn bg-white border px-6 py-3 rounded-xl">
-      Связаться
-    </a>
-  </div>
-</section>
+<div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center">
 
-<!-- AUTHOR -->
-<section id="author" class="p-6 sm:p-10 fade-up">
-  <div class="card max-w-xl mx-auto">
-    <h3 class="text-xl font-bold text-blue-600">Об авторе</h3>
+<div class="reveal">
 
-    <p class="mt-3 text-gray-700 font-medium">
-      Эскендеров Эмируллах Габибулахович
-    </p>
+<p class="text-blue-400 font-semibold mb-4">
+PORTFOLIO 2026
+</p>
 
-    <p class="text-gray-500">Студент: ДГУНХ</p>
-    <p class="text-gray-500">Город: Махачкала</p>
-  </div>
-</section>
+<h2 class="hero-title text-6xl font-extrabold leading-tight">
 
-<!-- CONTACT -->
-<section id="contact" class="p-6 sm:p-10 fade-up">
-  <div class="card max-w-xl mx-auto">
-    <h3 class="text-xl font-bold text-blue-600">Связаться</h3>
+Frontend Developer
+<br>
 
-    <p class="mt-3 font-semibold">📞 +79282185570</p>
+<span class="bg-gradient-to-r from-blue-400 to-violet-500 bg-clip-text text-transparent">
+UI/UX Designer
+</span>
 
-    <div class="mt-4 flex gap-3 flex-wrap">
+</h2>
 
-      <a class="btn bg-blue-500 text-white px-4 py-2 rounded-xl"
-         href="https://t.me/Essskenderovvv"
-         target="_blank">
-        Telegram
-      </a>
+<p class="mt-6 text-gray-300 text-lg leading-relaxed max-w-xl">
 
-      <a class="btn bg-green-500 text-white px-4 py-2 rounded-xl"
-         href="https://wa.me/79282185570"
-         target="_blank">
-        WhatsApp
-      </a>
+Создаю современные premium-сайты
+в стиле Apple, OpenAI и Linear.
+Адаптивный UI, анимации и мощный frontend.
 
-      <a class="btn bg-pink-500 text-white px-4 py-2 rounded-xl"
-         href="https://instagram.com/essskenderov"
-         target="_blank">
-        Instagram
-      </a>
+</p>
 
-    </div>
-  </div>
+<div class="flex flex-wrap gap-4 mt-8">
+
+<a href="#projects"
+class="btn bg-blue-600 px-7 py-4 rounded-2xl font-semibold">
+Мои проекты
+</a>
+
+<a href="#contact"
+class="btn glass px-7 py-4 rounded-2xl font-semibold">
+Связаться
+</a>
+
+</div>
+
+</div>
+
+<!-- IMAGE -->
+
+<div class="flex justify-center reveal">
+
+<div class="glass p-3 rounded-[30px]">
+
+<img
+src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1000&auto=format&fit=crop"
+class="w-[320px] h-[420px] object-cover rounded-[24px]"
+>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="p-6 sm:p-10 fade-up">
-  <div class="card max-w-2xl mx-auto">
-    <h3 class="text-xl font-bold text-blue-600 mb-3">
-      О сайте
-    </h3>
 
-    <p class="text-gray-700 leading-relaxed">
-      Рад приветствовать вас на моем личном сайте! Здесь собрана базовая информация и способы связи.
-    </p>
-  </div>
+<section id="about"
+class="max-w-6xl mx-auto px-6 py-24 reveal">
+
+<div class="glass rounded-[32px] p-10">
+
+<h3 class="text-4xl font-bold mb-6">
+Обо мне
+</h3>
+
+<p class="text-gray-300 leading-loose text-lg">
+
+Меня зовут Эмируллах Эскендеров.
+Я занимаюсь frontend-разработкой,
+созданием premium интерфейсов,
+анимацией UI и современным web-дизайном.
+
+Создаю адаптивные сайты,
+landing pages и portfolio
+с акцентом на стиль,
+скорость и UX.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills"
+class="max-w-6xl mx-auto px-6 py-24 reveal">
+
+<h3 class="text-4xl font-bold mb-12">
+Навыки
+</h3>
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+<div class="skill glass p-6 rounded-3xl text-center font-semibold">
+HTML5
+</div>
+
+<div class="skill glass p-6 rounded-3xl text-center font-semibold">
+CSS3
+</div>
+
+<div class="skill glass p-6 rounded-3xl text-center font-semibold">
+Tailwind
+</div>
+
+<div class="skill glass p-6 rounded-3xl text-center font-semibold">
+JavaScript
+</div>
+
+<div class="skill glass p-6 rounded-3xl text-center font-semibold">
+React
+</div>
+
+<div class="skill glass p-6 rounded-3xl text-center font-semibold">
+UI/UX
+</div>
+
+<div class="skill glass p-6 rounded-3xl text-center font-semibold">
+GSAP
+</div>
+
+<div class="skill glass p-6 rounded-3xl text-center font-semibold">
+Responsive Design
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects"
+class="max-w-7xl mx-auto px-6 py-24 reveal">
+
+<h3 class="text-4xl font-bold mb-12">
+Проекты
+</h3>
+
+<div class="grid md:grid-cols-3 gap-8">
+
+<!-- CARD -->
+
+<div class="project glass rounded-[30px] overflow-hidden">
+
+<img
+src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop"
+class="h-56 w-full object-cover"
+>
+
+<div class="p-6">
+
+<h4 class="text-2xl font-bold">
+Premium Landing
+</h4>
+
+<p class="mt-3 text-gray-300 leading-relaxed">
+Современный landing page
+в стиле Apple/OpenAI.
+</p>
+
+<div class="flex gap-2 mt-5 flex-wrap">
+
+<span class="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm">
+HTML
+</span>
+
+<span class="bg-violet-500/20 text-violet-300 px-3 py-1 rounded-full text-sm">
+Tailwind
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="project glass rounded-[30px] overflow-hidden">
+
+<img
+src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1200&auto=format&fit=crop"
+class="h-56 w-full object-cover"
+>
+
+<div class="p-6">
+
+<h4 class="text-2xl font-bold">
+Portfolio Website
+</h4>
+
+<p class="mt-3 text-gray-300 leading-relaxed">
+Адаптивный portfolio
+с анимациями и glass UI.
+</p>
+
+<div class="flex gap-2 mt-5 flex-wrap">
+
+<span class="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm">
+React
+</span>
+
+<span class="bg-violet-500/20 text-violet-300 px-3 py-1 rounded-full text-sm">
+GSAP
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="project glass rounded-[30px] overflow-hidden">
+
+<img
+src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop"
+class="h-56 w-full object-cover"
+>
+
+<div class="p-6">
+
+<h4 class="text-2xl font-bold">
+Creative UI
+</h4>
+
+<p class="mt-3 text-gray-300 leading-relaxed">
+Экспериментальный UI
+с premium анимациями.
+</p>
+
+<div class="flex gap-2 mt-5 flex-wrap">
+
+<span class="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm">
+UI/UX
+</span>
+
+<span class="bg-violet-500/20 text-violet-300 px-3 py-1 rounded-full text-sm">
+Animation
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact"
+class="max-w-5xl mx-auto px-6 py-24 reveal">
+
+<div class="glass rounded-[32px] p-10 text-center">
+
+<h3 class="text-4xl font-bold">
+Связаться со мной
+</h3>
+
+<p class="mt-5 text-gray-300">
+Готов к сотрудничеству и новым проектам.
+</p>
+
+<div class="flex justify-center gap-4 flex-wrap mt-8">
+
+<a
+href="https://t.me/Essskenderovvv"
+target="_blank"
+rel="noopener noreferrer"
+class="btn bg-blue-500 px-6 py-3 rounded-2xl font-semibold"
+>
+Telegram
+</a>
+
+<a
+href="https://instagram.com/essskenderov"
+target="_blank"
+rel="noopener noreferrer"
+class="btn bg-pink-500 px-6 py-3 rounded-2xl font-semibold"
+>
+Instagram
+</a>
+
+<a
+href="https://wa.me/79282185570"
+target="_blank"
+rel="noopener noreferrer"
+class="btn bg-green-500 px-6 py-3 rounded-2xl font-semibold"
+>
+WhatsApp
+</a>
+
+</div>
+
+</div>
+
 </section>
 
 <!-- FOOTER -->
-<footer class="p-10 text-center text-gray-500 text-sm fade-up">
-  © 2026 — Eskenderov Space
+
+<footer class="text-center py-10 text-gray-400 text-sm">
+
+© 2026 — Emirullah Eskenderov
+
 </footer>
 
 </div>
 
 <script>
-const elements = document.querySelectorAll('.fade-up');
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
-  });
-}, { threshold: 0.2 });
+/* reveal animation */
 
-elements.forEach(el => observer.observe(el));
+const reveals = document.querySelectorAll('.reveal');
+
+const observer = new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add('active');
+observer.unobserve(entry.target);
+
+}
+
+});
+
+},{threshold:.15});
+
+reveals.forEach(el=>observer.observe(el));
+
+/* dark mode */
+
+const btn = document.getElementById('themeBtn');
+
+btn.addEventListener('click',()=>{
+
+document.body.classList.toggle('light');
+
+if(document.body.classList.contains('light')){
+btn.innerHTML='☀️';
+}else{
+btn.innerHTML='🌙';
+}
+
+});
+
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Эмируллах Эскендеров — Portfolio</title>
+
+<meta name="description" content="Portfolio Эмируллаха Эскендерова">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+margin:0;
+font-family:'Inter',sans-serif;
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+/* animated background */
+
+.gradient{
+position:fixed;
+width:700px;
+height:700px;
+border-radius:50%;
+filter:blur(120px);
+opacity:.22;
+z-index:0;
+animation:float 12s ease-in-out infinite;
+}
+
+.gradient:nth-child(1){
+background:#3b82f6;
+top:-200px;
+left:-200px;
+}
+
+.gradient:nth-child(2){
+background:#8b5cf6;
+bottom:-200px;
+right:-200px;
+animation-delay:4s;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0px) translateX(0px);
+}
+50%{
+transform:translateY(40px) translateX(30px);
+}
+100%{
+transform:translateY(0px) translateX(0px);
+}
+}
+
+/* glass */
+
+.glass{
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 10px 40px rgba(0,0,0,.3);
+}
+
+/* reveal */
+
+.reveal{
+opacity:0;
+transform:translateY(60px);
+transition:1s;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* buttons */
+
+.btn{
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-4px) scale(1.03);
+box-shadow:0 10px 30px rgba(59,130,246,.4);
+}
+
+/* project card */
+
+.project{
+transition:.4s;
+}
+
+.project:hover{
+transform:translateY(-10px);
+border-color:rgba(59,130,246,.5);
+}
+
+/* skill */
+
+.skill{
+transition:.3s;
+}
+
+.skill:hover{
+transform:scale(1.06);
+background:#2563eb;
+}
+
+/* dark toggle */
+
+.toggle{
+cursor:pointer;
+}
+
+/* light mode */
+
+.light{
+background:#f5f7ff;
+color:#111827;
+}
+
+.light .glass{
+background:rgba(255,255,255,0.7);
+border:1px solid rgba(255,255,255,0.4);
+color:#111827;
+}
+
+.light nav a{
+color:#111827;
+}
+
+.light .text-gray-300{
+color:#374151;
+}
+
+.light .project{
+background:white;
+}
+
+/* mobile */
+
+@media(max-width:768px){
+
+.hero-title{
+font-size:42px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="gradient"></div>
+<div class="gradient"></div>
+
+<div class="relative z-10">
+
+<!-- HEADER -->
+
+<header class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between reveal">
+
+<h1 class="text-2xl font-extrabold">
+Emirullah
+</h1>
+
+<nav class="hidden md:flex gap-8 text-sm text-gray-300">
+
+<a href="#about">Обо мне</a>
+<a href="#skills">Навыки</a>
+<a href="#projects">Проекты</a>
+<a href="#contact">Контакты</a>
+
+</nav>
+
+<button id="themeBtn"
+class="toggle glass px-4 py-2 rounded-xl text-sm">
+🌙
+</button>
+
+</header>
+
+<!-- HERO -->
+
+<section class="min-h-screen flex items-center px-6">
+
+<div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center">
+
+<div class="reveal">
+
+<p class="text-blue-400 font-semibold mb-4">
+PORTFOLIO 2026
+</p>
+
+<h2 class="hero-title text-6xl font-extrabold leading-tight">
+
+Frontend Developer
+<br>
+
+<span class="bg-gradient-to-r from-blue-400 to-violet-500 bg-clip-text text-transparent">
+UI/UX Designer
+</span>
+
+</h2>
+
+<p class="mt-6 text-gray-300 text-lg leading-relaxed max-w-xl">
+
+Создаю современные premium-сайты
+в стиле Apple, OpenAI и Linear.
+Адаптивный UI, анимации и мощный frontend.
+
+</p>
+
+<div class="flex flex-wrap gap-4 mt-8">
+
+<a href="#projects"
+class="btn bg-blue-600 px-7 py-4 rounded-2xl font-semibold">
+Мои проекты
+</a>
+
+<a href="#contact"
+class="btn glass px-7 py-4 rounded-2xl font-semibold">
+Связаться
+</a>
+
+</div>
+
+</div>
+
+<!-- IMAGE -->
+
+<div class="flex justify-center reveal">
+
+<div class="glass p-3 rounded-[30px]">
+
+<img
+src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1000&auto=format&fit=crop"
+class="w-[320px] h-[420px] object-cover rounded-[24px]"
+>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about"
+class="max-w-6xl mx-auto px-6 py-24 reveal">
+
+<div class="glass rounded-[32px] p-10">
+
+<h3 class="text-4xl font-bold mb-6">
+Обо мне
+</h3>
+
+<p class="text-gray-300 leading-loose text-lg">
+
+Меня зовут Эмируллах Эскендеров.
+Я занимаюсь frontend-разработкой,
+созданием premium интерфейсов,
+анимацией UI и современным web-дизайном.
+
+Создаю адаптивные сайты,
+landing pages и portfolio
+с акцентом на стиль,
+скорость и UX.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills"
+class="max-w-6xl mx-auto px-6 py-24 reveal">
+
+<h3 class="text-4xl font-bold mb-12">
+Навыки
+</h3>
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+<div class="skill glass p-6 rounded-3xl text-center font-semibold">
+HTML5
+</div>
+
+<div class="skill glass p-6 rounded-3xl text-center font-semibold">
+CSS3
+</div>
+
+<div class="skill glass p-6 rounded-3xl text-center font-semibold">
+Tailwind
+</div>
+
+<div class="skill glass p-6 rounded-3xl text-center font-semibold">
+JavaScript
+</div>
+
+<div class="skill glass p-6 rounded-3xl text-center font-semibold">
+React
+</div>
+
+<div class="skill glass p-6 rounded-3xl text-center font-semibold">
+UI/UX
+</div>
+
+<div class="skill glass p-6 rounded-3xl text-center font-semibold">
+GSAP
+</div>
+
+<div class="skill glass p-6 rounded-3xl text-center font-semibold">
+Responsive Design
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects"
+class="max-w-7xl mx-auto px-6 py-24 reveal">
+
+<h3 class="text-4xl font-bold mb-12">
+Проекты
+</h3>
+
+<div class="grid md:grid-cols-3 gap-8">
+
+<!-- CARD -->
+
+<div class="project glass rounded-[30px] overflow-hidden">
+
+<img
+src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop"
+class="h-56 w-full object-cover"
+>
+
+<div class="p-6">
+
+<h4 class="text-2xl font-bold">
+Premium Landing
+</h4>
+
+<p class="mt-3 text-gray-300 leading-relaxed">
+Современный landing page
+в стиле Apple/OpenAI.
+</p>
+
+<div class="flex gap-2 mt-5 flex-wrap">
+
+<span class="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm">
+HTML
+</span>
+
+<span class="bg-violet-500/20 text-violet-300 px-3 py-1 rounded-full text-sm">
+Tailwind
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="project glass rounded-[30px] overflow-hidden">
+
+<img
+src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1200&auto=format&fit=crop"
+class="h-56 w-full object-cover"
+>
+
+<div class="p-6">
+
+<h4 class="text-2xl font-bold">
+Portfolio Website
+</h4>
+
+<p class="mt-3 text-gray-300 leading-relaxed">
+Адаптивный portfolio
+с анимациями и glass UI.
+</p>
+
+<div class="flex gap-2 mt-5 flex-wrap">
+
+<span class="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm">
+React
+</span>
+
+<span class="bg-violet-500/20 text-violet-300 px-3 py-1 rounded-full text-sm">
+GSAP
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="project glass rounded-[30px] overflow-hidden">
+
+<img
+src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop"
+class="h-56 w-full object-cover"
+>
+
+<div class="p-6">
+
+<h4 class="text-2xl font-bold">
+Creative UI
+</h4>
+
+<p class="mt-3 text-gray-300 leading-relaxed">
+Экспериментальный UI
+с premium анимациями.
+</p>
+
+<div class="flex gap-2 mt-5 flex-wrap">
+
+<span class="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm">
+UI/UX
+</span>
+
+<span class="bg-violet-500/20 text-violet-300 px-3 py-1 rounded-full text-sm">
+Animation
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact"
+class="max-w-5xl mx-auto px-6 py-24 reveal">
+
+<div class="glass rounded-[32px] p-10 text-center">
+
+<h3 class="text-4xl font-bold">
+Связаться со мной
+</h3>
+
+<p class="mt-5 text-gray-300">
+Готов к сотрудничеству и новым проектам.
+</p>
+
+<div class="flex justify-center gap-4 flex-wrap mt-8">
+
+<a
+href="https://t.me/Essskenderovvv"
+target="_blank"
+rel="noopener noreferrer"
+class="btn bg-blue-500 px-6 py-3 rounded-2xl font-semibold"
+>
+Telegram
+</a>
+
+<a
+href="https://instagram.com/essskenderov"
+target="_blank"
+rel="noopener noreferrer"
+class="btn bg-pink-500 px-6 py-3 rounded-2xl font-semibold"
+>
+Instagram
+</a>
+
+<a
+href="https://wa.me/79282185570"
+target="_blank"
+rel="noopener noreferrer"
+class="btn bg-green-500 px-6 py-3 rounded-2xl font-semibold"
+>
+WhatsApp
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="text-center py-10 text-gray-400 text-sm">
+
+© 2026 — Emirullah Eskenderov
+
+</footer>
+
+</div>
+
+<script>
+
+/* reveal animation */
+
+const reveals = document.querySelectorAll('.reveal');
+
+const observer = new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add('active');
+observer.unobserve(entry.target);
+
+}
+
+});
+
+},{threshold:.15});
+
+reveals.forEach(el=>observer.observe(el));
+
+/* dark mode */
+
+const btn = document.getElementById('themeBtn');
+
+btn.addEventListener('click',()=>{
+
+document.body.classList.toggle('light');
+
+if(document.body.classList.contains('light')){
+btn.innerHTML='☀️';
+}else{
+btn.innerHTML='🌙';
+}
+
+});
+
 </script>
 
 </body>
