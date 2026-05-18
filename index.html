@@ -31,8 +31,6 @@ body.light {
   color: #111;
 }
 
-/* background */
-
 .bg-grid {
   position: fixed;
   inset: 0;
@@ -70,8 +68,6 @@ body.light {
   }
 }
 
-/* navbar */
-
 .navbar {
   position: sticky;
   top: 0;
@@ -97,8 +93,6 @@ body.light {
 body.light .navbar {
   background: rgba(255,255,255,0.65);
 }
-
-/* premium text */
 
 .gradient-text {
   background: linear-gradient(
@@ -129,8 +123,6 @@ body.light .navbar {
     background-position: 0% 50%;
   }
 }
-
-/* cards */
 
 .card {
   position: relative;
@@ -193,8 +185,6 @@ body.light .card {
     0 0 40px rgba(59,130,246,0.12);
 }
 
-/* buttons */
-
 .btn {
   transition: 0.3s;
 }
@@ -202,8 +192,6 @@ body.light .card {
 .btn:hover {
   transform: scale(1.06);
 }
-
-/* reveal animation */
 
 .fade-up {
   opacity: 0;
@@ -216,8 +204,6 @@ body.light .card {
   transform: translateY(0);
 }
 
-/* skills */
-
 .skill {
   padding: 12px 18px;
 
@@ -227,8 +213,6 @@ body.light .card {
 
   border: 1px solid rgba(255,255,255,0.08);
 }
-
-/* portfolio */
 
 #portfolio .card {
   margin-top: 8px;
@@ -244,8 +228,6 @@ body.light .card {
 
   margin-bottom: 8px;
 }
-
-/* layout */
 
 .container {
   max-width: 1200px;
@@ -276,8 +258,6 @@ body.light .card {
      style="bottom:-120px;right:-120px">
 </div>
 
-<!-- NAVBAR -->
-
 <nav class="navbar">
 
   <div class="container flex justify-between items-center py-5">
@@ -294,6 +274,10 @@ body.light .card {
 
       <a href="#skills" class="hover:text-blue-400">
         Навыки
+      </a>
+
+      <a href="#cms" class="hover:text-blue-400">
+        CMS
       </a>
 
       <a href="#portfolio" class="hover:text-blue-400">
@@ -314,8 +298,6 @@ body.light .card {
   </div>
 
 </nav>
-
-<!-- HERO -->
 
 <section class="container min-h-screen flex flex-col justify-center items-center text-center fade-up">
 
@@ -350,8 +332,6 @@ body.light .card {
   </div>
 
 </section>
-
-<!-- ABOUT -->
 
 <section id="about"
          class="container py-24 fade-up">
@@ -411,8 +391,6 @@ body.light .card {
 
 </section>
 
-<!-- SKILLS -->
-
 <section id="skills"
          class="container py-24 fade-up">
 
@@ -436,7 +414,87 @@ body.light .card {
 
 </section>
 
-<!-- PORTFOLIO -->
+<!-- CMS / ADMIN PANEL -->
+
+<section id="cms"
+         class="container py-24 fade-up">
+
+  <h3 class="text-4xl font-bold text-center gradient-text mb-14">
+    CMS / Admin Panel
+  </h3>
+
+  <div class="grid md:grid-cols-3 gap-8">
+
+    <div class="card text-center">
+
+      <div class="text-5xl mb-6">
+        🧩
+      </div>
+
+      <h4 class="text-2xl font-bold mb-4">
+        Sanity
+      </h4>
+
+      <p class="text-gray-400 leading-relaxed">
+        Гибкая headless CMS для управления контентом
+        с современным API и удобной структурой данных.
+      </p>
+
+    </div>
+
+    <div class="card text-center">
+
+      <div class="text-5xl mb-6">
+        ⚡
+      </div>
+
+      <h4 class="text-2xl font-bold mb-4">
+        Contentful
+      </h4>
+
+      <p class="text-gray-400 leading-relaxed">
+        Premium CMS-платформа для быстрого редактирования
+        контента без необходимости менять код сайта.
+      </p>
+
+    </div>
+
+    <div class="card text-center">
+
+      <div class="text-5xl mb-6">
+        🔥
+      </div>
+
+      <h4 class="text-2xl font-bold mb-4">
+        Firebase
+      </h4>
+
+      <p class="text-gray-400 leading-relaxed">
+        Backend и admin-система с realtime базой данных,
+        авторизацией и удобным управлением проектом.
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="card max-w-4xl mx-auto mt-12 text-center">
+
+    <h4 class="text-3xl font-bold gradient-text mb-6">
+      Управление контентом без кода
+    </h4>
+
+    <p class="text-lg text-gray-300 leading-relaxed">
+      Подключаю CMS/Admin panel для удобного редактирования
+      сайта без участия разработчика.
+      Вы сможете самостоятельно менять тексты,
+      изображения, проекты, статьи и другой контент
+      через современную админ-панель.
+    </p>
+
+  </div>
+
+</section>
 
 <section id="portfolio"
          class="container py-24 fade-up">
@@ -496,8 +554,6 @@ body.light .card {
 
 </section>
 
-<!-- CONTACT -->
-
 <section id="contact"
          class="container py-24 fade-up">
 
@@ -546,15 +602,11 @@ body.light .card {
 
 </section>
 
-<!-- FOOTER -->
-
 <footer class="container py-10 text-center text-gray-500">
   © 2026 — Eskenderov Space
 </footer>
 
 <script>
-
-/* reveal animation */
 
 const observer = new IntersectionObserver((entries) => {
 
@@ -578,8 +630,6 @@ document.querySelectorAll('.fade-up').forEach(el => {
   observer.observe(el);
 });
 
-/* navbar scroll */
-
 window.addEventListener('scroll', () => {
 
   const nav = document.querySelector('.navbar');
@@ -591,8 +641,6 @@ window.addEventListener('scroll', () => {
   }
 
 });
-
-/* dark mode */
 
 const toggle = document.getElementById('themeToggle');
 
@@ -608,8 +656,6 @@ toggle.addEventListener('click', () => {
     lightMode ? '☀️' : '🌙';
 
 });
-
-/* mouse parallax */
 
 document.addEventListener('mousemove', (e) => {
 
