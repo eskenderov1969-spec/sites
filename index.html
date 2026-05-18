@@ -43,9 +43,6 @@ body.light {
 
   background-size: 50px 50px;
   z-index: -5;
-
-  /* FIX */
-  pointer-events: none;
 }
 
 .blob {
@@ -57,9 +54,6 @@ body.light {
   opacity: 0.25;
   animation: float 12s ease-in-out infinite;
   z-index: -4;
-
-  /* FIX */
-  pointer-events: none;
 }
 
 @keyframes float {
@@ -203,7 +197,6 @@ body.light .card {
 
 .btn {
   transition: 0.3s;
-  display: inline-block;
 }
 
 .btn:hover {
@@ -358,6 +351,151 @@ body.light .card {
 
 </section>
 
+<!-- ABOUT -->
+
+<section id="about"
+         class="container py-24 fade-up">
+
+  <div class="card max-w-4xl mx-auto text-center">
+
+    <h3 class="text-4xl font-bold gradient-text mb-8">
+      Обо мне
+    </h3>
+
+    <p class="text-lg leading-relaxed text-gray-300">
+
+Привет! Меня зовут Эмир.
+Я создаю современные сайты и интерфейсы.
+В работе ценю минимализм, премиальный UI/UX и выразительную анимацию.
+
+Стремлюсь к тому, чтобы дизайн не только радовал глаз, но и решал задачи пользователей.
+Мой подход — чистая эстетика, продуманная логика и внимание к деталям.
+
+    </p>
+
+    <div class="grid sm:grid-cols-3 gap-6 mt-10">
+
+      <div>
+        <h4 class="text-3xl font-black gradient-text">
+          10+
+        </h4>
+
+        <p class="text-gray-400">
+          Проектов
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-3xl font-black gradient-text">
+          2026
+        </h4>
+
+        <p class="text-gray-400">
+          Текущий год
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-3xl font-black gradient-text">
+          24/7
+        </h4>
+
+        <p class="text-gray-400">
+          Креатив
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills"
+         class="container py-24 fade-up">
+
+  <h3 class="text-4xl font-bold text-center gradient-text mb-14">
+    Навыки
+  </h3>
+
+  <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+
+    <div class="skill">HTML5</div>
+    <div class="skill">CSS3</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">Tailwind CSS</div>
+    <div class="skill">React</div>
+    <div class="skill">UI/UX Design</div>
+    <div class="skill">Responsive Design</div>
+    <div class="skill">Animations</div>
+    <div class="skill">Premium Interfaces</div>
+
+  </div>
+
+</section>
+
+<!-- PORTFOLIO -->
+
+<section id="portfolio"
+         class="container py-24 fade-up">
+
+  <h3 class="text-4xl font-bold text-center gradient-text mb-14">
+    Портфолио
+  </h3>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 xl:gap-14">
+
+    <div class="card">
+
+      <img class="portfolio-img"
+           src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop">
+
+      <h4 class="text-2xl font-bold mt-6">
+        Business Landing
+      </h4>
+
+      <p class="text-gray-400 mt-3">
+        Современный landing page с glassmorphism.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <img class="portfolio-img"
+           src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop">
+
+      <h4 class="text-2xl font-bold mt-6">
+        Developer Portfolio
+      </h4>
+
+      <p class="text-gray-400 mt-3">
+        Персональный сайт с premium UI.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <img class="portfolio-img"
+           src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop">
+
+      <h4 class="text-2xl font-bold mt-6">
+        Creative Interface
+      </h4>
+
+      <p class="text-gray-400 mt-3">
+        Анимированный futuristic интерфейс.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
 <!-- CONTACT -->
 
 <section id="contact"
@@ -407,6 +545,8 @@ body.light .card {
   </div>
 
 </section>
+
+<!-- FOOTER -->
 
 <footer class="container py-10 text-center text-gray-500">
   © 2026 — Eskenderov Space
