@@ -1,15 +1,18 @@
-```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Личный premium сайт Эмируллаха Эскендерова" />
+
+<meta name="theme-color" content="#050816">
+
 <title>Eskenderov Space</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
+
 html {
   scroll-behavior: smooth;
 }
@@ -28,13 +31,16 @@ body.light {
   color: #111;
 }
 
-/* animated background */
+/* background */
+
 .bg-grid {
   position: fixed;
   inset: 0;
+
   background-image:
     linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+
   background-size: 50px 50px;
   z-index: -5;
 }
@@ -51,52 +57,144 @@ body.light {
 }
 
 @keyframes float {
-  0% { transform: translateY(0px) translateX(0px); }
-  50% { transform: translateY(-40px) translateX(20px); }
-  100% { transform: translateY(0px) translateX(0px); }
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+
+  50% {
+    transform: translateY(-40px) translateX(20px);
+  }
+
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
 }
 
 /* navbar */
+
 .navbar {
   position: sticky;
   top: 0;
   z-index: 999;
+
   backdrop-filter: blur(14px);
+
   background: rgba(255,255,255,0.06);
+
   border-bottom: 1px solid rgba(255,255,255,0.08);
+
+  transition: 0.4s;
+}
+
+.navbar.scrolled {
+  background: rgba(5,8,22,0.82);
+
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+
+  box-shadow: 0 10px 40px rgba(0,0,0,0.25);
 }
 
 body.light .navbar {
-  background: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.65);
 }
 
 /* premium text */
+
 .gradient-text {
-  background: linear-gradient(90deg,#3b82f6,#8b5cf6,#ec4899);
+  background: linear-gradient(
+    90deg,
+    #3b82f6,
+    #8b5cf6,
+    #ec4899
+  );
+
+  background-size: 300% 300%;
+
+  animation: gradientMove 8s ease infinite;
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 /* cards */
+
 .card {
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(14px);
+  position: relative;
+  overflow: hidden;
+
+  background: rgba(255,255,255,0.05);
+
+  backdrop-filter: blur(16px);
+
   border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 28px;
-  padding: 28px;
-  transition: 0.4s;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+
+  border-radius: 32px;
+
+  padding: 32px;
+
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease,
+    border-color 0.45s ease;
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.18),
+    0 0 0 rgba(59,130,246,0);
 }
 
 body.light .card {
-  background: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.72);
+}
+
+.card::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  border-radius: inherit;
+
+  padding: 1px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.25),
+    transparent
+  );
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
 }
 
 .card:hover {
-  transform: translateY(-8px) scale(1.01);
+  transform: translateY(-10px);
+
+  border-color: rgba(255,255,255,0.16);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.35),
+    0 0 40px rgba(59,130,246,0.12);
 }
 
 /* buttons */
+
 .btn {
   transition: 0.3s;
 }
@@ -105,7 +203,8 @@ body.light .card {
   transform: scale(1.06);
 }
 
-/* animations */
+/* reveal animation */
+
 .fade-up {
   opacity: 0;
   transform: translateY(60px);
@@ -118,22 +217,36 @@ body.light .card {
 }
 
 /* skills */
+
 .skill {
   padding: 12px 18px;
+
   border-radius: 999px;
+
   background: rgba(255,255,255,0.08);
+
   border: 1px solid rgba(255,255,255,0.08);
 }
 
-/* portfolio image */
+/* portfolio */
+
+#portfolio .card {
+  margin-top: 8px;
+}
+
 .portfolio-img {
-  border-radius: 20px;
+  border-radius: 24px;
+
   width: 100%;
-  height: 200px;
+  height: 220px;
+
   object-fit: cover;
+
+  margin-bottom: 8px;
 }
 
 /* typewriter */
+
 .cursor {
   animation: blink 1s infinite;
 }
@@ -144,6 +257,8 @@ body.light .card {
   }
 }
 
+/* layout */
+
 .container {
   max-width: 1200px;
   margin: auto;
@@ -151,22 +266,32 @@ body.light .card {
 }
 
 @media(max-width:768px){
+
   .hero-title {
     font-size: 42px;
   }
+
 }
+
 </style>
 </head>
 
 <body>
 
 <div class="bg-grid"></div>
-<div class="blob bg-blue-500" style="top:-120px;left:-120px"></div>
-<div class="blob bg-purple-500" style="bottom:-120px;right:-120px"></div>
 
+<div class="blob bg-blue-500"
+     style="top:-120px;left:-120px">
+</div>
+
+<div class="blob bg-purple-500"
+     style="bottom:-120px;right:-120px">
+</div>
 
 <!-- NAVBAR -->
+
 <nav class="navbar">
+
   <div class="container flex justify-between items-center py-5">
 
     <h1 class="text-2xl font-bold gradient-text">
@@ -174,45 +299,72 @@ body.light .card {
     </h1>
 
     <div class="flex gap-6 items-center text-sm sm:text-base">
-      <a href="#about" class="hover:text-blue-400">О сайте</a>
-      <a href="#skills" class="hover:text-blue-400">Навыки</a>
-      <a href="#portfolio" class="hover:text-blue-400">Портфолио</a>
-      <a href="#contact" class="hover:text-blue-400">Контакты</a>
 
-      <button id="themeToggle" class="bg-white/10 px-4 py-2 rounded-xl">
+      <a href="#about" class="hover:text-blue-400">
+        О сайте
+      </a>
+
+      <a href="#skills" class="hover:text-blue-400">
+        Навыки
+      </a>
+
+      <a href="#portfolio" class="hover:text-blue-400">
+        Портфолио
+      </a>
+
+      <a href="#contact" class="hover:text-blue-400">
+        Контакты
+      </a>
+
+      <button id="themeToggle"
+              class="bg-white/10 px-4 py-2 rounded-xl">
         🌙
       </button>
+
     </div>
 
   </div>
+
 </nav>
 
 <!-- HERO -->
+
 <section class="container min-h-screen flex flex-col justify-center items-center text-center fade-up">
 
   <h2 class="hero-title text-5xl sm:text-7xl font-black leading-tight max-w-5xl">
+
     Создаю
+
     <span class="gradient-text">
       современные
     </span>
+
     digital-проекты
+
   </h2>
 
   <p class="mt-8 text-lg sm:text-2xl text-gray-300 max-w-2xl">
+
     <span id="typewriter"></span>
+
     <span class="cursor">|</span>
+
   </p>
 
   <div class="mt-10 flex flex-wrap justify-center gap-4">
 
     <a href="#portfolio"
        class="btn bg-blue-600 hover:bg-blue-500 px-8 py-4 rounded-2xl font-semibold shadow-2xl">
+
       Смотреть проекты
+
     </a>
 
     <a href="#contact"
        class="btn bg-white/10 border border-white/10 px-8 py-4 rounded-2xl font-semibold backdrop-blur-xl">
+
       Связаться
+
     </a>
 
   </div>
@@ -220,7 +372,9 @@ body.light .card {
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="container py-24 fade-up">
+
+<section id="about"
+         class="container py-24 fade-up">
 
   <div class="card max-w-4xl mx-auto text-center">
 
@@ -229,26 +383,46 @@ body.light .card {
     </h3>
 
     <p class="text-lg leading-relaxed text-gray-300">
-      Привет! Меня зовут Эскендеров Эмируллах Габибулахович.
-      Я занимаюсь созданием современных сайтов и интерфейсов.
-      Люблю минимализм, premium UI/UX и анимации.
+
+Привет! Меня зовут Эмир.
+Я создаю современные сайты и интерфейсы.
+В работе ценю минимализм, премиальный UI/UX и выразительную анимацию.
+
+Стремлюсь к тому, чтобы дизайн не только радовал глаз, но и решал задачи пользователей.
+Мой подход — чистая эстетика, продуманная логика и внимание к деталям.
+
     </p>
 
     <div class="grid sm:grid-cols-3 gap-6 mt-10">
 
       <div>
-        <h4 class="text-3xl font-black gradient-text">10+</h4>
-        <p class="text-gray-400">Проектов</p>
+        <h4 class="text-3xl font-black gradient-text">
+          10+
+        </h4>
+
+        <p class="text-gray-400">
+          Проектов
+        </p>
       </div>
 
       <div>
-        <h4 class="text-3xl font-black gradient-text">2026</h4>
-        <p class="text-gray-400">Текущий год</p>
+        <h4 class="text-3xl font-black gradient-text">
+          2026
+        </h4>
+
+        <p class="text-gray-400">
+          Текущий год
+        </p>
       </div>
 
       <div>
-        <h4 class="text-3xl font-black gradient-text">24/7</h4>
-        <p class="text-gray-400">Креатив</p>
+        <h4 class="text-3xl font-black gradient-text">
+          24/7
+        </h4>
+
+        <p class="text-gray-400">
+          Креатив
+        </p>
       </div>
 
     </div>
@@ -258,7 +432,9 @@ body.light .card {
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="container py-24 fade-up">
+
+<section id="skills"
+         class="container py-24 fade-up">
 
   <h3 class="text-4xl font-bold text-center gradient-text mb-14">
     Навыки
@@ -281,42 +457,59 @@ body.light .card {
 </section>
 
 <!-- PORTFOLIO -->
-<section id="portfolio" class="container py-24 fade-up">
+
+<section id="portfolio"
+         class="container py-24 fade-up">
 
   <h3 class="text-4xl font-bold text-center gradient-text mb-14">
     Портфолио
   </h3>
 
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 xl:gap-14">
 
     <div class="card">
+
       <img class="portfolio-img"
            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop">
 
-      <h4 class="text-2xl font-bold mt-6">Business Landing</h4>
+      <h4 class="text-2xl font-bold mt-6">
+        Business Landing
+      </h4>
+
       <p class="text-gray-400 mt-3">
         Современный landing page с glassmorphism.
       </p>
+
     </div>
 
     <div class="card">
+
       <img class="portfolio-img"
            src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop">
 
-      <h4 class="text-2xl font-bold mt-6">Developer Portfolio</h4>
+      <h4 class="text-2xl font-bold mt-6">
+        Developer Portfolio
+      </h4>
+
       <p class="text-gray-400 mt-3">
         Персональный сайт с premium UI.
       </p>
+
     </div>
 
     <div class="card">
+
       <img class="portfolio-img"
            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop">
 
-      <h4 class="text-2xl font-bold mt-6">Creative Interface</h4>
+      <h4 class="text-2xl font-bold mt-6">
+        Creative Interface
+      </h4>
+
       <p class="text-gray-400 mt-3">
         Анимированный futuristic интерфейс.
       </p>
+
     </div>
 
   </div>
@@ -324,7 +517,9 @@ body.light .card {
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="container py-24 fade-up">
+
+<section id="contact"
+         class="container py-24 fade-up">
 
   <div class="card max-w-3xl mx-auto text-center">
 
@@ -342,21 +537,27 @@ body.light .card {
          target="_blank"
          rel="noopener noreferrer"
          class="btn bg-blue-500 px-6 py-4 rounded-2xl font-semibold">
+
          Telegram
+
       </a>
 
       <a href="https://wa.me/79282185570"
          target="_blank"
          rel="noopener noreferrer"
          class="btn bg-green-500 px-6 py-4 rounded-2xl font-semibold">
+
          WhatsApp
+
       </a>
 
       <a href="https://instagram.com/essskenderov"
          target="_blank"
          rel="noopener noreferrer"
          class="btn bg-pink-500 px-6 py-4 rounded-2xl font-semibold">
+
          Instagram
+
       </a>
 
     </div>
@@ -366,20 +567,29 @@ body.light .card {
 </section>
 
 <!-- FOOTER -->
+
 <footer class="container py-10 text-center text-gray-500">
   © 2026 — Eskenderov Space
 </footer>
 
 <script>
 
-/* reveal animations */
+/* reveal animation */
+
 const observer = new IntersectionObserver((entries) => {
+
   entries.forEach(entry => {
+
     if (entry.isIntersecting) {
+
       entry.target.classList.add('show');
+
       observer.unobserve(entry.target);
+
     }
+
   });
+
 }, {
   threshold: 0.2
 });
@@ -388,19 +598,36 @@ document.querySelectorAll('.fade-up').forEach(el => {
   observer.observe(el);
 });
 
+/* navbar scroll */
 
+window.addEventListener('scroll', () => {
+
+  const nav = document.querySelector('.navbar');
+
+  if (window.scrollY > 40) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+
+});
 
 /* typewriter */
+
 const words = [
+
   'Студент ДГУНХ.',
   'Frontend-разработчик.',
   'Создатель premium интерфейсов.',
   'Любитель современных технологий.'
+
 ];
 
 let wordIndex = 0;
 let charIndex = 0;
+
 let currentWord = '';
+
 let isDeleting = false;
 
 const typewriter = document.getElementById('typewriter');
@@ -410,42 +637,83 @@ function typeEffect() {
   currentWord = words[wordIndex];
 
   if (!isDeleting) {
-    typewriter.textContent = currentWord.substring(0, charIndex++);
+
+    typewriter.textContent =
+      currentWord.substring(0, charIndex++);
+
   } else {
-    typewriter.textContent = currentWord.substring(0, charIndex--);
+
+    typewriter.textContent =
+      currentWord.substring(0, charIndex--);
+
   }
 
-  if (!isDeleting && charIndex === currentWord.length + 1) {
+  if (
+    !isDeleting &&
+    charIndex === currentWord.length + 1
+  ) {
+
     isDeleting = true;
+
     setTimeout(typeEffect, 1400);
+
     return;
+
   }
 
   if (isDeleting && charIndex === 0) {
+
     isDeleting = false;
+
     wordIndex = (wordIndex + 1) % words.length;
+
   }
 
   setTimeout(typeEffect, isDeleting ? 45 : 90);
+
 }
 
 typeEffect();
 
 /* dark mode */
+
 const toggle = document.getElementById('themeToggle');
 
 let lightMode = false;
 
 toggle.addEventListener('click', () => {
+
   document.body.classList.toggle('light');
 
   lightMode = !lightMode;
 
-  toggle.textContent = lightMode ? '☀️' : '🌙';
+  toggle.textContent =
+    lightMode ? '☀️' : '🌙';
+
+});
+
+/* mouse parallax */
+
+document.addEventListener('mousemove', (e) => {
+
+  const blobs = document.querySelectorAll('.blob');
+
+  blobs.forEach((blob, index) => {
+
+    const speed = (index + 1) * 25;
+
+    blob.style.transform = `
+      translate(
+        ${e.clientX / speed}px,
+        ${e.clientY / speed}px
+      )
+    `;
+
+  });
+
 });
 
 </script>
 
 </body>
 </html>
-```
