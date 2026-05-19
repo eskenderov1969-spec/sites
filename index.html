@@ -2,10 +2,8 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Личный premium сайт Эмируллаха Эскендерова" />
-
-<meta name="theme-color" content="#050816">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Eskenderov Space — Premium Portfolio & CMS"/>
 
 <title>Eskenderov Space</title>
 
@@ -13,232 +11,231 @@
 
 <style>
 
-html {
-  scroll-behavior: smooth;
+html{
+  scroll-behavior:smooth;
 }
 
-body {
-  margin: 0;
-  font-family: Inter, system-ui, sans-serif;
-  overflow-x: hidden;
-  background: #050816;
-  color: white;
-  transition: 0.4s;
+body{
+  margin:0;
+  font-family:Inter,system-ui,sans-serif;
+  background:#050816;
+  color:white;
+  overflow-x:hidden;
 }
 
-body.light {
-  background: linear-gradient(135deg,#f8fafc,#eef2ff);
-  color: #111;
-}
+/* GRID */
 
-.bg-grid {
-  position: fixed;
-  inset: 0;
+.bg-grid{
+  position:fixed;
+  inset:0;
 
   background-image:
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
 
-  background-size: 50px 50px;
-  z-index: -5;
+  background-size:50px 50px;
+
+  z-index:-5;
 }
 
-.blob {
-  position: fixed;
-  width: 500px;
-  height: 500px;
-  border-radius: 9999px;
-  filter: blur(120px);
-  opacity: 0.25;
-  animation: float 12s ease-in-out infinite;
-  z-index: -4;
+/* BLOBS */
+
+.blob{
+  position:fixed;
+  width:500px;
+  height:500px;
+  border-radius:9999px;
+  filter:blur(120px);
+  opacity:.25;
+  z-index:-4;
+  animation:float 14s ease-in-out infinite;
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(0px) translateX(0px);
+@keyframes float{
+
+  0%{
+    transform:translate(0,0);
   }
 
-  50% {
-    transform: translateY(-40px) translateX(20px);
+  50%{
+    transform:translate(40px,-30px);
   }
 
-  100% {
-    transform: translateY(0px) translateX(0px);
+  100%{
+    transform:translate(0,0);
   }
+
 }
 
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 999;
+/* NAVBAR */
 
-  backdrop-filter: blur(14px);
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:999;
 
-  background: rgba(255,255,255,0.06);
+  backdrop-filter:blur(16px);
 
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.05);
 
-  transition: 0.4s;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+
+  transition:.4s;
 }
 
-.navbar.scrolled {
-  background: rgba(5,8,22,0.82);
+.navbar.scrolled{
+  background:rgba(5,8,22,.85);
 
-  border-bottom: 1px solid rgba(255,255,255,0.12);
-
-  box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+  box-shadow:0 10px 40px rgba(0,0,0,.3);
 }
 
-body.light .navbar {
-  background: rgba(255,255,255,0.65);
+/* CONTAINER */
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:0 20px;
 }
 
-.gradient-text {
-  background: linear-gradient(
+/* TEXT */
+
+.gradient-text{
+  background:linear-gradient(
     90deg,
     #3b82f6,
     #8b5cf6,
     #ec4899
   );
 
-  background-size: 300% 300%;
+  background-size:300% 300%;
 
-  animation: gradientMove 8s ease infinite;
+  animation:gradientMove 8s ease infinite;
 
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-@keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
+@keyframes gradientMove{
+
+  0%{
+    background-position:0% 50%;
   }
 
-  50% {
-    background-position: 100% 50%;
+  50%{
+    background-position:100% 50%;
   }
 
-  100% {
-    background-position: 0% 50%;
+  100%{
+    background-position:0% 50%;
   }
+
 }
 
-.card {
-  position: relative;
-  overflow: hidden;
+/* CARD */
 
-  background: rgba(255,255,255,0.05);
+.card{
+  background:rgba(255,255,255,.05);
 
-  backdrop-filter: blur(16px);
+  backdrop-filter:blur(16px);
 
-  border: 1px solid rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,.08);
 
-  border-radius: 32px;
+  border-radius:32px;
 
-  padding: 32px;
+  padding:32px;
 
-  transition:
-    transform 0.45s ease,
-    box-shadow 0.45s ease,
-    border-color 0.45s ease;
+  transition:.45s;
 
   box-shadow:
-    0 10px 40px rgba(0,0,0,0.18),
-    0 0 0 rgba(59,130,246,0);
+  0 10px 40px rgba(0,0,0,.18);
 }
 
-body.light .card {
-  background: rgba(255,255,255,0.72);
-}
+.card:hover{
 
-.card::before {
-  content: '';
-
-  position: absolute;
-  inset: 0;
-
-  border-radius: inherit;
-
-  padding: 1px;
-
-  background: linear-gradient(
-    135deg,
-    rgba(255,255,255,0.25),
-    transparent
-  );
-
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-
-  -webkit-mask-composite: xor;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-
-  border-color: rgba(255,255,255,0.16);
+  transform:translateY(-10px);
 
   box-shadow:
-    0 30px 80px rgba(0,0,0,0.35),
-    0 0 40px rgba(59,130,246,0.12);
+  0 30px 80px rgba(0,0,0,.35),
+  0 0 40px rgba(59,130,246,.12);
+
 }
 
-.btn {
-  transition: 0.3s;
+/* BUTTON */
+
+.btn{
+  transition:.3s;
 }
 
-.btn:hover {
-  transform: scale(1.06);
+.btn:hover{
+  transform:scale(1.05);
 }
 
-.fade-up {
-  opacity: 0;
-  transform: translateY(60px);
-  transition: all 1s ease;
+/* ANIMATION */
+
+.fade-up{
+  opacity:0;
+  transform:translateY(60px);
+  transition:1s ease;
 }
 
-.fade-up.show {
-  opacity: 1;
-  transform: translateY(0);
+.fade-up.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
-.skill {
-  padding: 12px 18px;
+/* SKILLS */
 
-  border-radius: 999px;
+.skill{
+  padding:12px 18px;
 
-  background: rgba(255,255,255,0.08);
+  border-radius:999px;
 
-  border: 1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,.08);
+
+  border:1px solid rgba(255,255,255,.08);
 }
 
-#portfolio .card {
-  margin-top: 8px;
+/* PORTFOLIO */
+
+.portfolio-img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:24px;
+  margin-bottom:20px;
 }
 
-.portfolio-img {
-  border-radius: 24px;
+/* CMS PANEL */
 
-  width: 100%;
-  height: 220px;
+.cms-input{
+  width:100%;
+  margin-top:14px;
+  padding:14px;
+  border:none;
+  border-radius:18px;
+  outline:none;
 
-  object-fit: cover;
+  background:rgba(255,255,255,.08);
 
-  margin-bottom: 8px;
+  color:white;
 }
 
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 20px;
+textarea.cms-input{
+  min-height:120px;
+  resize:none;
 }
+
+/* MOBILE */
 
 @media(max-width:768px){
 
-  .hero-title {
-    font-size: 42px;
+  .hero-title{
+    font-size:42px;
+  }
+
+  .blob{
+    width:260px;
+    height:260px;
   }
 
 }
@@ -251,428 +248,435 @@ body.light .card {
 <div class="bg-grid"></div>
 
 <div class="blob bg-blue-500"
-     style="top:-120px;left:-120px">
-</div>
+style="top:-120px;left:-120px"></div>
 
 <div class="blob bg-purple-500"
-     style="bottom:-120px;right:-120px">
-</div>
+style="bottom:-120px;right:-120px"></div>
+
+<!-- NAVBAR -->
 
 <nav class="navbar">
 
-  <div class="container flex justify-between items-center py-5">
+<div class="container flex justify-between items-center py-5">
 
-    <h1 class="text-2xl font-bold gradient-text">
-      Eskenderov Space
-    </h1>
+<h1 class="text-2xl font-black gradient-text">
+Eskenderov Space
+</h1>
 
-    <div class="flex gap-6 items-center text-sm sm:text-base">
+<div class="flex gap-6 text-sm sm:text-base">
 
-      <a href="#about" class="hover:text-blue-400">
-        О сайте
-      </a>
+<a href="#about" class="hover:text-blue-400">
+О сайте
+</a>
 
-      <a href="#skills" class="hover:text-blue-400">
-        Навыки
-      </a>
+<a href="#cms" class="hover:text-blue-400">
+CMS
+</a>
 
-      <a href="#cms" class="hover:text-blue-400">
-        CMS
-      </a>
+<a href="#portfolio" class="hover:text-blue-400">
+Портфолио
+</a>
 
-      <a href="#portfolio" class="hover:text-blue-400">
-        Портфолио
-      </a>
+<a href="#contact" class="hover:text-blue-400">
+Контакты
+</a>
 
-      <a href="#contact" class="hover:text-blue-400">
-        Контакты
-      </a>
+</div>
 
-      <button id="themeToggle"
-              class="bg-white/10 px-4 py-2 rounded-xl">
-        🌙
-      </button>
-
-    </div>
-
-  </div>
+</div>
 
 </nav>
 
+<!-- HERO -->
+
 <section class="container min-h-screen flex flex-col justify-center items-center text-center fade-up">
 
-  <h2 class="hero-title text-5xl sm:text-7xl font-black leading-tight max-w-5xl">
+<h2 class="hero-title text-5xl sm:text-7xl font-black leading-tight max-w-5xl">
 
-    Создаю
+Создаю
 
-    <span class="gradient-text">
-      современные
-    </span>
+<span class="gradient-text">
+premium
+</span>
 
-    digital-проекты
+digital-проекты
 
-  </h2>
+</h2>
 
-  <div class="mt-10 flex flex-wrap justify-center gap-4">
+<p class="mt-8 text-gray-400 max-w-2xl text-lg">
 
-    <a href="#portfolio"
-       class="btn bg-blue-600 hover:bg-blue-500 px-8 py-4 rounded-2xl font-semibold shadow-2xl">
+Современные сайты, CMS-системы, интерфейсы и premium UI/UX решения.
 
-      Смотреть проекты
+</p>
 
-    </a>
+<div class="mt-10 flex flex-wrap justify-center gap-4">
 
-    <a href="#contact"
-       class="btn bg-white/10 border border-white/10 px-8 py-4 rounded-2xl font-semibold backdrop-blur-xl">
+<a href="#portfolio"
+class="btn bg-blue-600 px-8 py-4 rounded-2xl font-semibold shadow-2xl">
 
-      Связаться
+Смотреть проекты
 
-    </a>
+</a>
 
-  </div>
+<a href="#contact"
+class="btn bg-white/10 border border-white/10 px-8 py-4 rounded-2xl backdrop-blur-xl">
+
+Связаться
+
+</a>
+
+</div>
 
 </section>
+
+<!-- ABOUT -->
 
 <section id="about"
-         class="container py-24 fade-up">
+class="container py-24 fade-up">
 
-  <div class="card max-w-4xl mx-auto text-center">
+<div class="card max-w-5xl mx-auto text-center">
 
-    <h3 class="text-4xl font-bold gradient-text mb-8">
-      Обо мне
-    </h3>
+<h3 class="text-4xl font-bold gradient-text mb-8">
+О сайте
+</h3>
 
-    <p class="text-lg leading-relaxed text-gray-300">
+<p id="aboutText"
+class="text-lg text-gray-300 leading-relaxed">
 
-Привет! Меня зовут Эмир.
-Я создаю современные сайты и интерфейсы.
-В работе ценю минимализм, премиальный UI/UX и выразительную анимацию.
+Добро пожаловать на мой premium сайт-портфолио.
+Здесь представлены мои проекты, навыки и современные CMS-решения.
 
-Стремлюсь к тому, чтобы дизайн не только радовал глаз, но и решал задачи пользователей.
-Мой подход — чистая эстетика, продуманная логика и внимание к деталям.
+Я создаю эстетичные digital-интерфейсы,
+landing page, admin panel и premium web-дизайн
+с акцентом на минимализм, анимацию и UX.
 
-    </p>
+</p>
 
-    <div class="grid sm:grid-cols-3 gap-6 mt-10">
-
-      <div>
-        <h4 class="text-3xl font-black gradient-text">
-          10+
-        </h4>
-
-        <p class="text-gray-400">
-          Проектов
-        </p>
-      </div>
-
-      <div>
-        <h4 class="text-3xl font-black gradient-text">
-          2026
-        </h4>
-
-        <p class="text-gray-400">
-          Текущий год
-        </p>
-      </div>
-
-      <div>
-        <h4 class="text-3xl font-black gradient-text">
-          24/7
-        </h4>
-
-        <p class="text-gray-400">
-          Креатив
-        </p>
-      </div>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
-<section id="skills"
-         class="container py-24 fade-up">
-
-  <h3 class="text-4xl font-bold text-center gradient-text mb-14">
-    Навыки
-  </h3>
-
-  <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-
-    <div class="skill">HTML5</div>
-    <div class="skill">CSS3</div>
-    <div class="skill">JavaScript</div>
-    <div class="skill">Tailwind CSS</div>
-    <div class="skill">React</div>
-    <div class="skill">UI/UX Design</div>
-    <div class="skill">Responsive Design</div>
-    <div class="skill">Animations</div>
-    <div class="skill">Premium Interfaces</div>
-
-  </div>
-
-</section>
-
-<!-- CMS / ADMIN PANEL -->
+<!-- CMS -->
 
 <section id="cms"
-         class="container py-24 fade-up">
+class="container py-24 fade-up">
 
-  <h3 class="text-4xl font-bold text-center gradient-text mb-14">
-    CMS / Admin Panel
-  </h3>
+<h3 class="text-4xl font-bold text-center gradient-text mb-14">
 
-  <div class="grid md:grid-cols-3 gap-8">
+CMS / Admin Panel
 
-    <div class="card text-center">
+</h3>
 
-      <div class="text-5xl mb-6">
-        🧩
-      </div>
+<div class="grid lg:grid-cols-2 gap-10">
 
-      <h4 class="text-2xl font-bold mb-4">
-        Sanity
-      </h4>
+<!-- ADMIN -->
 
-      <p class="text-gray-400 leading-relaxed">
-        Гибкая headless CMS для управления контентом
-        с современным API и удобной структурой данных.
-      </p>
+<div class="card">
 
-    </div>
+<h4 class="text-2xl font-bold mb-6">
+Редактирование сайта
+</h4>
 
-    <div class="card text-center">
+<input
+id="titleInput"
+class="cms-input"
+placeholder="Название сайта"
+/>
 
-      <div class="text-5xl mb-6">
-        ⚡
-      </div>
+<textarea
+id="aboutInput"
+class="cms-input"
+placeholder="Текст о сайте"></textarea>
 
-      <h4 class="text-2xl font-bold mb-4">
-        Contentful
-      </h4>
+<button
+id="saveBtn"
+class="btn mt-6 bg-blue-600 px-6 py-4 rounded-2xl font-semibold w-full">
 
-      <p class="text-gray-400 leading-relaxed">
-        Premium CMS-платформа для быстрого редактирования
-        контента без необходимости менять код сайта.
-      </p>
+Сохранить изменения
 
-    </div>
+</button>
 
-    <div class="card text-center">
+</div>
 
-      <div class="text-5xl mb-6">
-        🔥
-      </div>
+<!-- INFO -->
 
-      <h4 class="text-2xl font-bold mb-4">
-        Firebase
-      </h4>
+<div class="card">
 
-      <p class="text-gray-400 leading-relaxed">
-        Backend и admin-система с realtime базой данных,
-        авторизацией и удобным управлением проектом.
-      </p>
+<h4 class="text-2xl font-bold mb-6">
+Возможности CMS
+</h4>
 
-    </div>
+<div class="space-y-6 text-gray-300">
 
-  </div>
+<div>
+🔥 Изменение текста сайта
+</div>
 
-  <div class="card max-w-4xl mx-auto mt-12 text-center">
+<div>
+⚡ Редактирование контента без кода
+</div>
 
-    <h4 class="text-3xl font-bold gradient-text mb-6">
-      Управление контентом без кода
-    </h4>
+<div>
+🧩 Простая admin-панель
+</div>
 
-    <p class="text-lg text-gray-300 leading-relaxed">
-      Подключаю CMS/Admin panel для удобного редактирования
-      сайта без участия разработчика.
-      Вы сможете самостоятельно менять тексты,
-      изображения, проекты, статьи и другой контент
-      через современную админ-панель.
-    </p>
+<div>
+🚀 LocalStorage CMS
+</div>
 
-  </div>
+<div>
+🎨 Premium UI интерфейс
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
+
+<!-- PORTFOLIO -->
 
 <section id="portfolio"
-         class="container py-24 fade-up">
+class="container py-24 fade-up">
 
-  <h3 class="text-4xl font-bold text-center gradient-text mb-14">
-    Портфолио
-  </h3>
+<h3 class="text-4xl font-bold text-center gradient-text mb-14">
 
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 xl:gap-14">
+Портфолио
 
-    <div class="card">
+</h3>
 
-      <img class="portfolio-img"
-           src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop">
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-      <h4 class="text-2xl font-bold mt-6">
-        Business Landing
-      </h4>
+<!-- CARD -->
 
-      <p class="text-gray-400 mt-3">
-        Современный landing page с glassmorphism.
-      </p>
+<div class="card">
 
-    </div>
+<img
+class="portfolio-img"
+src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop">
 
-    <div class="card">
+<h4 class="text-2xl font-bold">
+Business Landing
+</h4>
 
-      <img class="portfolio-img"
-           src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop">
+<p class="text-gray-400 mt-3">
 
-      <h4 class="text-2xl font-bold mt-6">
-        Developer Portfolio
-      </h4>
+Premium landing page с glassmorphism дизайном.
 
-      <p class="text-gray-400 mt-3">
-        Персональный сайт с premium UI.
-      </p>
+</p>
 
-    </div>
+</div>
 
-    <div class="card">
+<!-- CARD -->
 
-      <img class="portfolio-img"
-           src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop">
+<div class="card">
 
-      <h4 class="text-2xl font-bold mt-6">
-        Creative Interface
-      </h4>
+<img
+class="portfolio-img"
+src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop">
 
-      <p class="text-gray-400 mt-3">
-        Анимированный futuristic интерфейс.
-      </p>
+<h4 class="text-2xl font-bold">
+Developer Portfolio
+</h4>
 
-    </div>
+<p class="text-gray-400 mt-3">
 
-  </div>
+Современное portfolio с premium UI/UX.
+
+</p>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card">
+
+<img
+class="portfolio-img"
+src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop">
+
+<h4 class="text-2xl font-bold">
+CMS Dashboard
+</h4>
+
+<p class="text-gray-400 mt-3">
+
+Admin panel и система управления контентом.
+
+</p>
+
+</div>
+
+</div>
 
 </section>
 
+<!-- CONTACT -->
+
 <section id="contact"
-         class="container py-24 fade-up">
+class="container py-24 fade-up">
 
-  <div class="card max-w-3xl mx-auto text-center">
+<div class="card max-w-3xl mx-auto text-center">
 
-    <h3 class="text-4xl font-bold gradient-text mb-8">
-      Контакты
-    </h3>
+<h3 class="text-4xl font-bold gradient-text mb-8">
 
-    <p class="text-xl font-semibold mb-8">
-      📞 +7 (928) 218-55-70
-    </p>
+Контакты
 
-    <div class="flex flex-wrap justify-center gap-4">
+</h3>
 
-      <a href="https://t.me/Essskenderovvv"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="btn bg-blue-500 px-6 py-4 rounded-2xl font-semibold">
+<p class="text-xl font-semibold mb-8">
 
-         Telegram
+📞 +7 (928) 218-55-70
 
-      </a>
+</p>
 
-      <a href="https://wa.me/79282185570"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="btn bg-green-500 px-6 py-4 rounded-2xl font-semibold">
+<div class="flex flex-wrap justify-center gap-4">
 
-         WhatsApp
+<a
+href="https://t.me/Essskenderovvv"
+target="_blank"
+class="btn bg-blue-500 px-6 py-4 rounded-2xl font-semibold">
 
-      </a>
+Telegram
 
-      <a href="https://instagram.com/essskenderov"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="btn bg-pink-500 px-6 py-4 rounded-2xl font-semibold">
+</a>
 
-         Instagram
+<a
+href="https://wa.me/79282185570"
+target="_blank"
+class="btn bg-green-500 px-6 py-4 rounded-2xl font-semibold">
 
-      </a>
+WhatsApp
 
-    </div>
+</a>
 
-  </div>
+<a
+href="https://instagram.com/essskenderov"
+target="_blank"
+class="btn bg-pink-500 px-6 py-4 rounded-2xl font-semibold">
+
+Instagram
+
+</a>
+
+</div>
+
+</div>
 
 </section>
 
 <footer class="container py-10 text-center text-gray-500">
-  © 2026 — Eskenderov Space
+
+© 2026 — Eskenderov Space
+
 </footer>
 
 <script>
 
-const observer = new IntersectionObserver((entries) => {
+/* ANIMATION */
 
-  entries.forEach(entry => {
+const observer = new IntersectionObserver((entries)=>{
 
-    if (entry.isIntersecting) {
+entries.forEach(entry=>{
 
-      entry.target.classList.add('show');
+if(entry.isIntersecting){
 
-      observer.unobserve(entry.target);
+entry.target.classList.add('show');
 
-    }
-
-  });
-
-}, {
-  threshold: 0.2
-});
-
-document.querySelectorAll('.fade-up').forEach(el => {
-  observer.observe(el);
-});
-
-window.addEventListener('scroll', () => {
-
-  const nav = document.querySelector('.navbar');
-
-  if (window.scrollY > 40) {
-    nav.classList.add('scrolled');
-  } else {
-    nav.classList.remove('scrolled');
-  }
+}
 
 });
 
-const toggle = document.getElementById('themeToggle');
+},{
+threshold:0.2
+});
 
-let lightMode = false;
+document.querySelectorAll('.fade-up').forEach(el=>{
+observer.observe(el);
+});
 
-toggle.addEventListener('click', () => {
+/* NAVBAR */
 
-  document.body.classList.toggle('light');
+window.addEventListener('scroll',()=>{
 
-  lightMode = !lightMode;
+const nav=document.querySelector('.navbar');
 
-  toggle.textContent =
-    lightMode ? '☀️' : '🌙';
+if(window.scrollY>40){
+
+nav.classList.add('scrolled');
+
+}else{
+
+nav.classList.remove('scrolled');
+
+}
 
 });
 
-document.addEventListener('mousemove', (e) => {
+/* CMS */
 
-  const blobs = document.querySelectorAll('.blob');
+const titleInput=document.getElementById('titleInput');
 
-  blobs.forEach((blob, index) => {
+const aboutInput=document.getElementById('aboutInput');
 
-    const speed = (index + 1) * 25;
+const saveBtn=document.getElementById('saveBtn');
 
-    blob.style.transform = `
-      translate(
-        ${e.clientX / speed}px,
-        ${e.clientY / speed}px
-      )
-    `;
+const aboutText=document.getElementById('aboutText');
 
-  });
+/* LOAD */
+
+titleInput.value=
+localStorage.getItem('siteTitle') || 'Eskenderov Space';
+
+aboutInput.value=
+localStorage.getItem('aboutText') || aboutText.innerText;
+
+document.title=titleInput.value;
+
+aboutText.innerText=aboutInput.value;
+
+/* SAVE */
+
+saveBtn.addEventListener('click',()=>{
+
+localStorage.setItem(
+'siteTitle',
+titleInput.value
+);
+
+localStorage.setItem(
+'aboutText',
+aboutInput.value
+);
+
+document.title=titleInput.value;
+
+aboutText.innerText=aboutInput.value;
+
+alert('Изменения сохранены');
+
+});
+
+/* MOUSE EFFECT */
+
+document.addEventListener('mousemove',(e)=>{
+
+const blobs=document.querySelectorAll('.blob');
+
+blobs.forEach((blob,index)=>{
+
+const speed=(index+1)*25;
+
+blob.style.transform=`
+translate(
+${e.clientX/speed}px,
+${e.clientY/speed}px
+)
+`;
+
+});
 
 });
 
