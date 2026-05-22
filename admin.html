@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Eskenderov Admin</title>
 
@@ -10,16 +13,16 @@
 
 <style>
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 margin:0;
 font-family:Inter,system-ui,sans-serif;
 background:#050816;
 color:white;
-display:flex;
-align-items:center;
-justify-content:center;
-min-height:100vh;
-overflow:hidden;
+overflow-x:hidden;
 }
 
 /* GRID */
@@ -40,8 +43,8 @@ z-index:-5;
 
 .blob{
 position:fixed;
-width:400px;
-height:400px;
+width:420px;
+height:420px;
 border-radius:9999px;
 filter:blur(120px);
 opacity:.25;
@@ -65,14 +68,17 @@ transform:translate(0,0);
 
 }
 
+/* CONTAINER */
+
+.container{
+max-width:1400px;
+margin:auto;
+padding:40px 20px;
+}
+
 /* CARD */
 
 .card{
-width:100%;
-max-width:520px;
-
-padding:40px;
-
 background:rgba(255,255,255,.05);
 
 backdrop-filter:blur(20px);
@@ -80,6 +86,8 @@ backdrop-filter:blur(20px);
 border:1px solid rgba(255,255,255,.08);
 
 border-radius:32px;
+
+padding:32px;
 
 box-shadow:
 0 20px 60px rgba(0,0,0,.35);
@@ -124,11 +132,9 @@ background-position:0% 50%;
 .input{
 width:100%;
 
+margin-top:14px;
+
 padding:16px;
-
-margin-top:15px;
-
-background:rgba(255,255,255,.08);
 
 border:none;
 
@@ -136,19 +142,20 @@ border-radius:18px;
 
 outline:none;
 
+background:rgba(255,255,255,.08);
+
 color:white;
+}
+
+textarea.input{
+min-height:150px;
+resize:none;
 }
 
 /* BUTTON */
 
 .btn{
-width:100%;
-
-padding:16px;
-
-margin-top:20px;
-
-background:#2563eb;
+padding:16px 24px;
 
 border:none;
 
@@ -159,6 +166,10 @@ font-weight:700;
 cursor:pointer;
 
 transition:.3s;
+
+background:#2563eb;
+
+color:white;
 }
 
 .btn:hover{
@@ -166,13 +177,72 @@ transform:translateY(-3px);
 background:#3b82f6;
 }
 
-.hidden{
+.btn-red{
+background:#dc2626;
+}
+
+.btn-purple{
+background:#7c3aed;
+}
+
+/* STATUS */
+
+.status{
+margin-top:20px;
+padding:14px;
+border-radius:18px;
+background:rgba(34,197,94,.12);
+border:1px solid rgba(34,197,94,.25);
+color:#86efac;
+text-align:center;
 display:none;
 }
 
-textarea.input{
-min-height:140px;
-resize:none;
+/* ERROR */
+
+.error{
+margin-top:15px;
+color:#f87171;
+text-align:center;
+display:none;
+}
+
+/* DASHBOARD */
+
+.dashboard{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:30px;
+}
+
+.stat-card{
+background:rgba(255,255,255,.05);
+padding:30px;
+border-radius:28px;
+border:1px solid rgba(255,255,255,.08);
+}
+
+.stat-number{
+font-size:42px;
+font-weight:900;
+margin-top:10px;
+}
+
+/* PROJECT */
+
+.project-card{
+padding:20px;
+border-radius:24px;
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.08);
+margin-top:15px;
+}
+
+/* HIDDEN */
+
+.hidden{
+display:none;
 }
 
 </style>
@@ -182,25 +252,29 @@ resize:none;
 
 <div class="bg-grid"></div>
 
-<div class="blob bg-blue-500"
+<div
+class="blob bg-blue-500"
 style="top:-120px;left:-120px"></div>
 
-<div class="blob bg-purple-500"
+<div
+class="blob bg-purple-500"
 style="bottom:-120px;right:-120px"></div>
 
-<div class="card">
+<div class="container">
 
-<h1 class="text-4xl font-black gradient-text text-center mb-8">
+<!-- LOGIN -->
+
+<div
+id="loginBox"
+class="card max-w-xl mx-auto">
+
+<h1 class="text-5xl font-black gradient-text text-center mb-10">
 
 Admin Panel
 
 </h1>
 
-<!-- LOGIN -->
-
-<div id="loginBox">
-
-<p class="text-center text-gray-400 mb-5">
+<p class="text-center text-gray-400 mb-6">
 
 Введите пароль администратора
 
@@ -210,17 +284,18 @@ Admin Panel
 id="password"
 type="password"
 placeholder="Пароль"
-class="input">
+class="input"
+/>
 
-<button id="loginBtn" class="btn">
+<button
+id="loginBtn"
+class="btn w-full mt-5">
 
 Войти
 
 </button>
 
-<p
-id="error"
-class="hidden text-red-400 mt-4 text-center">
+<p id="error" class="error">
 
 Неверный пароль
 
@@ -228,40 +303,212 @@ class="hidden text-red-400 mt-4 text-center">
 
 </div>
 
-<!-- ADMIN CMS -->
+<!-- ADMIN -->
 
 <div id="adminPanel" class="hidden">
 
-<h2 class="text-2xl font-bold mb-6 text-center">
+<div class="flex justify-between items-center mb-10">
 
-CMS Управление
+<h1 class="text-5xl font-black gradient-text">
+
+Eskenderov CMS
+
+</h1>
+
+<button
+onclick="window.location.href='index.html'"
+class="btn btn-purple">
+
+На сайт
+
+</button>
+
+</div>
+
+<!-- DASHBOARD -->
+
+<div class="dashboard">
+
+<div class="stat-card">
+<div class="text-gray-400">
+Проектов
+</div>
+<div class="stat-number">
+12
+</div>
+</div>
+
+<div class="stat-card">
+<div class="text-gray-400">
+Посетителей
+</div>
+<div class="stat-number">
+4.8K
+</div>
+</div>
+
+<div class="stat-card">
+<div class="text-gray-400">
+Сообщений
+</div>
+<div class="stat-number">
+86
+</div>
+</div>
+
+<div class="stat-card">
+<div class="text-gray-400">
+Статус
+</div>
+<div class="stat-number text-green-400">
+ONLINE
+</div>
+</div>
+
+</div>
+
+<!-- CMS -->
+
+<div class="grid lg:grid-cols-2 gap-10 mt-10">
+
+<!-- LEFT -->
+
+<div class="card">
+
+<h2 class="text-3xl font-bold mb-8">
+
+Редактирование сайта
 
 </h2>
 
 <input
 id="titleInput"
 class="input"
-placeholder="Название сайта">
+placeholder="Название сайта"
+/>
 
 <textarea
 id="aboutInput"
 class="input"
-placeholder="Текст о сайте"></textarea>
+placeholder="Описание сайта"></textarea>
 
-<button id="saveBtn" class="btn">
+<input
+id="phoneInput"
+class="input"
+placeholder="Телефон"
+/>
+
+<input
+id="telegramInput"
+class="input"
+placeholder="Telegram ссылка"
+/>
+
+<button
+id="saveBtn"
+class="btn w-full mt-5">
 
 Сохранить изменения
 
 </button>
 
-<button
-onclick="window.location.href='index.html'"
-class="btn"
-style="background:#7c3aed">
+<div id="success" class="status">
 
-Вернуться на сайт
+Изменения сохранены
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="card">
+
+<h2 class="text-3xl font-bold mb-8">
+
+Управление проектами
+
+</h2>
+
+<div id="projectsList"></div>
+
+<button
+id="addProjectBtn"
+class="btn w-full mt-5">
+
+Добавить проект
 
 </button>
+
+</div>
+
+</div>
+
+<!-- SETTINGS -->
+
+<div class="grid lg:grid-cols-2 gap-10 mt-10">
+
+<div class="card">
+
+<h2 class="text-3xl font-bold mb-8">
+
+Настройки сайта
+
+</h2>
+
+<div class="space-y-4">
+
+<label class="flex items-center gap-4">
+<input type="checkbox" checked>
+<span>Particles эффект</span>
+</label>
+
+<label class="flex items-center gap-4">
+<input type="checkbox" checked>
+<span>Glassmorphism UI</span>
+</label>
+
+<label class="flex items-center gap-4">
+<input type="checkbox" checked>
+<span>Premium animations</span>
+</label>
+
+<label class="flex items-center gap-4">
+<input type="checkbox">
+<span>Maintenance mode</span>
+</label>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2 class="text-3xl font-bold mb-8">
+
+Быстрые действия
+
+</h2>
+
+<div class="flex flex-col gap-4">
+
+<button class="btn">
+Очистить localStorage
+</button>
+
+<button class="btn btn-red">
+Удалить проекты
+</button>
+
+<button class="btn btn-purple">
+Backup сайта
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
@@ -296,32 +543,57 @@ document.getElementById('titleInput');
 const aboutInput =
 document.getElementById('aboutInput');
 
+const phoneInput =
+document.getElementById('phoneInput');
+
+const telegramInput =
+document.getElementById('telegramInput');
+
 const saveBtn =
 document.getElementById('saveBtn');
+
+const success =
+document.getElementById('success');
+
+const projectsList =
+document.getElementById('projectsList');
+
+const addProjectBtn =
+document.getElementById('addProjectBtn');
 
 /* LOGIN */
 
 loginBtn.addEventListener('click',()=>{
 
-if(password.value === PASSWORD){
+if(password.value.trim() === PASSWORD){
 
 loginBox.classList.add('hidden');
 
 adminPanel.classList.remove('hidden');
 
-/* LOAD DATA */
+/* LOAD */
 
 titleInput.value =
-localStorage.getItem('siteTitle') ||
-'Eskenderov Space';
+localStorage.getItem('siteTitle')
+|| 'Eskenderov Space';
 
 aboutInput.value =
-localStorage.getItem('aboutText') ||
-'';
+localStorage.getItem('aboutText')
+|| '';
+
+phoneInput.value =
+localStorage.getItem('phone')
+|| '';
+
+telegramInput.value =
+localStorage.getItem('telegram')
+|| '';
+
+loadProjects();
 
 }else{
 
-error.classList.remove('hidden');
+error.style.display='block';
 
 }
 
@@ -341,9 +613,108 @@ localStorage.setItem(
 aboutInput.value
 );
 
-alert('Изменения сохранены');
+localStorage.setItem(
+'phone',
+phoneInput.value
+);
+
+localStorage.setItem(
+'telegram',
+telegramInput.value
+);
+
+success.style.display='block';
+
+setTimeout(()=>{
+
+success.style.display='none';
+
+},2500);
 
 });
+
+/* PROJECTS */
+
+function loadProjects(){
+
+const projects =
+JSON.parse(localStorage.getItem('projects'))
+|| [];
+
+projectsList.innerHTML='';
+
+projects.forEach((project,index)=>{
+
+const div=document.createElement('div');
+
+div.className='project-card';
+
+div.innerHTML=`
+
+<h3 class="text-xl font-bold">
+${project}
+</h3>
+
+<button
+onclick="deleteProject(${index})"
+class="btn btn-red w-full mt-4">
+
+Удалить
+
+</button>
+
+`;
+
+projectsList.appendChild(div);
+
+});
+
+}
+
+/* ADD PROJECT */
+
+addProjectBtn.addEventListener('click',()=>{
+
+const projectName =
+prompt('Название проекта');
+
+if(projectName){
+
+const projects =
+JSON.parse(localStorage.getItem('projects'))
+|| [];
+
+projects.push(projectName);
+
+localStorage.setItem(
+'projects',
+JSON.stringify(projects)
+);
+
+loadProjects();
+
+}
+
+});
+
+/* DELETE PROJECT */
+
+function deleteProject(index){
+
+const projects =
+JSON.parse(localStorage.getItem('projects'))
+|| [];
+
+projects.splice(index,1);
+
+localStorage.setItem(
+'projects',
+JSON.stringify(projects)
+);
+
+loadProjects();
+
+}
 
 </script>
 
