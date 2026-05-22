@@ -279,7 +279,7 @@ color:#374151 !important;
 <a href="#about" class="hover:text-blue-400">О сайте</a>
 <a href="#portfolio" class="hover:text-blue-400">Портфолио</a>
 <a href="#contact" class="hover:text-blue-400">Контакты</a>
-<a href="#adminLogin" class="hover:text-blue-400">Admin</a>
+<a href="admin.html" class="hover:text-blue-400">Admin</a>
 </div>
 </div>
 </nav>
@@ -527,5 +527,107 @@ btn.style.transform='translate(0,0)';
 });
 </script>
 
+<!--
+СОЗДАЙ ОТДЕЛЬНЫЙ ФАЙЛ admin.html И ВСТАВЬ ТУДА КОД НИЖЕ
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eskenderov Admin</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body{
+margin:0;
+font-family:Inter,system-ui,sans-serif;
+background:#050816;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+min-height:100vh;
+}
+.card{
+width:100%;
+max-width:500px;
+padding:40px;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.08);
+border-radius:32px;
+}
+.input{
+width:100%;
+padding:16px;
+margin-top:15px;
+background:rgba(255,255,255,.08);
+border:none;
+border-radius:18px;
+outline:none;
+color:white;
+}
+.btn{
+width:100%;
+padding:16px;
+margin-top:20px;
+background:#2563eb;
+border:none;
+border-radius:18px;
+font-weight:700;
+cursor:pointer;
+}
+.hidden{display:none;}
+.gradient-text{
+background:linear-gradient(90deg,#3b82f6,#8b5cf6,#ec4899);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+</style>
+</head>
+<body>
+<div class="card">
+<h1 class="text-4xl font-black gradient-text text-center mb-8">Admin Panel</h1>
+<div id="loginBox">
+<input id="password" type="password" placeholder="Пароль" class="input">
+<button id="loginBtn" class="btn">Войти</button>
+<p id="error" class="hidden text-red-400 mt-4 text-center">Неверный пароль</p>
+</div>
+<div id="adminPanel" class="hidden">
+<input id="titleInput" class="input" placeholder="Название сайта">
+<textarea id="aboutInput" class="input" placeholder="Текст о сайте" style="min-height:140px"></textarea>
+<button id="saveBtn" class="btn">Сохранить изменения</button>
+<button onclick="window.location.href='index.html'" class="btn" style="background:#7c3aed">Вернуться на сайт</button>
+</div>
+</div>
+<script>
+const PASSWORD='Ee221352';
+const loginBtn=document.getElementById('loginBtn');
+const password=document.getElementById('password');
+const error=document.getElementById('error');
+const loginBox=document.getElementById('loginBox');
+const adminPanel=document.getElementById('adminPanel');
+const titleInput=document.getElementById('titleInput');
+const aboutInput=document.getElementById('aboutInput');
+const saveBtn=document.getElementById('saveBtn');
+loginBtn.addEventListener('click',()=>{
+if(password.value===PASSWORD){
+loginBox.classList.add('hidden');
+adminPanel.classList.remove('hidden');
+titleInput.value=localStorage.getItem('siteTitle') || 'Eskenderov Space';
+aboutInput.value=localStorage.getItem('aboutText') || '';
+}else{
+error.classList.remove('hidden');
+}
+});
+saveBtn.addEventListener('click',()=>{
+localStorage.setItem('siteTitle',titleInput.value);
+localStorage.setItem('aboutText',aboutInput.value);
+alert('Изменения сохранены');
+});
+</script>
+</body>
+</html>
+-->
 </body>
 </html>
