@@ -1,4 +1,347 @@
-<!-- ЗАМЕНИ СТАРЫЙ БЛОК PORTFOLIO НА ЭТОТ -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Eskenderov Space — Premium Portfolio & CMS">
+
+<title>Eskenderov Space</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+margin:0;
+font-family:Inter,system-ui,sans-serif;
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+/* GRID */
+
+.bg-grid{
+position:fixed;
+inset:0;
+
+background-image:
+linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+
+background-size:50px 50px;
+z-index:-5;
+}
+
+/* BLOBS */
+
+.blob{
+position:fixed;
+width:500px;
+height:500px;
+border-radius:9999px;
+filter:blur(120px);
+opacity:.25;
+z-index:-4;
+animation:float 14s ease-in-out infinite;
+}
+
+@keyframes float{
+
+0%{
+transform:translate(0,0);
+}
+
+50%{
+transform:translate(40px,-30px);
+}
+
+100%{
+transform:translate(0,0);
+}
+
+}
+
+/* NAVBAR */
+
+.navbar{
+position:sticky;
+top:0;
+z-index:999;
+
+backdrop-filter:blur(16px);
+
+background:rgba(255,255,255,.05);
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+transition:.4s;
+}
+
+.navbar.scrolled{
+background:rgba(5,8,22,.85);
+
+box-shadow:0 10px 40px rgba(0,0,0,.3);
+}
+
+/* CONTAINER */
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:0 20px;
+}
+
+/* TEXT */
+
+.gradient-text{
+background:linear-gradient(
+90deg,
+#3b82f6,
+#8b5cf6,
+#ec4899
+);
+
+background-size:300% 300%;
+
+animation:gradientMove 8s ease infinite;
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+@keyframes gradientMove{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+/* CARD */
+
+.card{
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(16px);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:32px;
+
+padding:32px;
+
+transition:.45s;
+
+box-shadow:
+0 10px 40px rgba(0,0,0,.18);
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:
+0 30px 80px rgba(0,0,0,.35),
+0 0 40px rgba(59,130,246,.12);
+
+}
+
+/* BUTTON */
+
+.btn{
+transition:.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+/* ANIMATION */
+
+.fade-up{
+opacity:0;
+transform:translateY(60px);
+transition:1s ease;
+}
+
+.fade-up.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* PORTFOLIO */
+
+.portfolio-img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:24px;
+margin-bottom:20px;
+}
+
+/* CMS */
+
+.cms-input{
+width:100%;
+margin-top:14px;
+padding:14px;
+border:none;
+border-radius:18px;
+outline:none;
+
+background:rgba(255,255,255,.08);
+
+color:white;
+}
+
+textarea.cms-input{
+min-height:120px;
+resize:none;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero-title{
+font-size:42px;
+}
+
+.blob{
+width:260px;
+height:260px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg-grid"></div>
+
+<div class="blob bg-blue-500"
+style="top:-120px;left:-120px"></div>
+
+<div class="blob bg-purple-500"
+style="bottom:-120px;right:-120px"></div>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<div class="container flex justify-between items-center py-5">
+
+<h1 class="text-2xl font-black gradient-text">
+Eskenderov Space
+</h1>
+
+<div class="flex gap-6 text-sm sm:text-base">
+
+<a href="#about" class="hover:text-blue-400">
+О сайте
+</a>
+
+<a href="#portfolio" class="hover:text-blue-400">
+Портфолио
+</a>
+
+<a href="#contact" class="hover:text-blue-400">
+Контакты
+</a>
+
+<a href="#adminLogin" class="hover:text-blue-400">
+Admin
+</a>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="container min-h-screen flex flex-col justify-center items-center text-center fade-up">
+
+<h2 class="hero-title text-5xl sm:text-7xl font-black leading-tight max-w-5xl">
+
+Создаю
+
+<span class="gradient-text">
+premium
+</span>
+
+digital-проекты
+
+</h2>
+
+<p class="mt-8 text-gray-400 max-w-2xl text-lg">
+
+Современные сайты, CMS-системы, интерфейсы и premium UI/UX решения.
+
+</p>
+
+<div class="mt-10 flex flex-wrap justify-center gap-4">
+
+<a href="#portfolio"
+class="btn bg-blue-600 px-8 py-4 rounded-2xl font-semibold shadow-2xl">
+
+Смотреть проекты
+
+</a>
+
+<a href="#contact"
+class="btn bg-white/10 border border-white/10 px-8 py-4 rounded-2xl backdrop-blur-xl">
+
+Связаться
+
+</a>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about"
+class="container py-20 fade-up">
+
+<div class="card max-w-5xl mx-auto text-center">
+
+<h3 class="text-4xl font-bold gradient-text mb-8">
+О сайте
+</h3>
+
+<p id="aboutText"
+class="text-lg text-gray-300 leading-relaxed">
+
+Добро пожаловать на мой premium сайт-портфолио.
+Здесь представлены мои проекты, навыки и современные CMS-решения.
+
+Я создаю эстетичные digital-интерфейсы,
+landing page, admin panel и premium web-дизайн
+с акцентом на минимализм, анимацию и UX.
+
+</p>
+
+</div>
+
+</section>
 
 <!-- PORTFOLIO -->
 
@@ -11,172 +354,224 @@ class="container py-20 fade-up">
 
 </h3>
 
-<!-- CATEGORIES -->
-
-<div class="flex flex-wrap justify-center gap-4 mb-12">
-
-<button class="btn bg-white/10 px-5 py-3 rounded-2xl border border-white/10">
-Landing
-</button>
-
-<button class="btn bg-white/10 px-5 py-3 rounded-2xl border border-white/10">
-CRM
-</button>
-
-<button class="btn bg-white/10 px-5 py-3 rounded-2xl border border-white/10">
-Dashboard
-</button>
-
-<button class="btn bg-white/10 px-5 py-3 rounded-2xl border border-white/10">
-Mobile UI
-</button>
-
-</div>
-
 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-<!-- CARD -->
-
-<div class="card group relative overflow-hidden">
+<div class="card">
 
 <img
-class="portfolio-img transition duration-500 group-hover:scale-110"
+class="portfolio-img"
 src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop">
 
-<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-500"></div>
-
-<h4 class="text-2xl font-bold relative z-10">
+<h4 class="text-2xl font-bold">
 Business Landing
 </h4>
 
-<p class="text-gray-400 mt-3 relative z-10">
+<p class="text-gray-400 mt-3">
 
 Premium landing page с glassmorphism дизайном.
 
 </p>
 
-<div class="flex gap-3 mt-6 relative z-10">
-
-<button
-onclick="openModal(
-'Business Landing',
-'Premium landing page с glassmorphism дизайном.',
-'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop',
-'https://github.com/',
-'https://example.com'
-)"
-class="btn bg-blue-600 px-5 py-3 rounded-2xl font-semibold">
-
-Подробнее
-
-</button>
-
-<a
-href="https://github.com"
-target="_blank"
-class="btn bg-white/10 px-5 py-3 rounded-2xl border border-white/10">
-
-GitHub
-
-</a>
-
 </div>
 
-</div>
-
-<!-- CARD -->
-
-<div class="card group relative overflow-hidden">
+<div class="card">
 
 <img
-class="portfolio-img transition duration-500 group-hover:scale-110"
+class="portfolio-img"
 src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop">
 
-<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-500"></div>
-
-<h4 class="text-2xl font-bold relative z-10">
-Developer CRM
+<h4 class="text-2xl font-bold">
+Developer Portfolio
 </h4>
 
-<p class="text-gray-400 mt-3 relative z-10">
+<p class="text-gray-400 mt-3">
 
-CRM система и admin dashboard.
+Современное portfolio с premium UI/UX.
 
 </p>
 
-<div class="flex gap-3 mt-6 relative z-10">
-
-<button
-onclick="openModal(
-'Developer CRM',
-'CRM система и admin dashboard.',
-'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop',
-'https://github.com/',
-'https://example.com'
-)"
-class="btn bg-blue-600 px-5 py-3 rounded-2xl font-semibold">
-
-Подробнее
-
-</button>
-
-<a
-href="https://github.com"
-target="_blank"
-class="btn bg-white/10 px-5 py-3 rounded-2xl border border-white/10">
-
-GitHub
-
-</a>
-
 </div>
 
-</div>
-
-<!-- CARD -->
-
-<div class="card group relative overflow-hidden">
+<div class="card">
 
 <img
-class="portfolio-img transition duration-500 group-hover:scale-110"
+class="portfolio-img"
 src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop">
 
-<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-500"></div>
-
-<h4 class="text-2xl font-bold relative z-10">
-Mobile UI
+<h4 class="text-2xl font-bold">
+CMS Dashboard
 </h4>
 
-<p class="text-gray-400 mt-3 relative z-10">
+<p class="text-gray-400 mt-3">
 
-Premium mobile interface и UI system.
+Admin panel и система управления контентом.
 
 </p>
 
-<div class="flex gap-3 mt-6 relative z-10">
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact"
+class="container py-20 fade-up">
+
+<div class="card max-w-3xl mx-auto text-center">
+
+<h3 class="text-4xl font-bold gradient-text mb-8">
+
+Контакты
+
+</h3>
+
+<p class="text-xl font-semibold mb-8">
+
+📞 +7 (928) 218-55-70
+
+</p>
+
+<div class="flex flex-wrap justify-center gap-4">
+
+<a
+href="https://t.me/Essskenderovvv"
+target="_blank"
+class="btn bg-blue-500 px-6 py-4 rounded-2xl font-semibold">
+
+Telegram
+
+</a>
+
+<a
+href="https://wa.me/79282185570"
+target="_blank"
+class="btn bg-green-500 px-6 py-4 rounded-2xl font-semibold">
+
+WhatsApp
+
+</a>
+
+<a
+href="https://instagram.com/essskenderov"
+target="_blank"
+class="btn bg-pink-500 px-6 py-4 rounded-2xl font-semibold">
+
+Instagram
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ADMIN LOGIN -->
+
+<section id="adminLogin"
+class="container py-20 fade-up">
+
+<div class="card max-w-xl mx-auto text-center">
+
+<h3 class="text-4xl font-bold gradient-text mb-8">
+
+Admin Panel
+
+</h3>
+
+<p class="text-gray-400 mb-8">
+
+Введите пароль для входа в CMS
+
+</p>
+
+<input
+type="password"
+id="adminPassword"
+placeholder="Пароль"
+class="cms-input"
+/>
 
 <button
-onclick="openModal(
-'Mobile UI',
-'Premium mobile interface и UI system.',
-'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop',
-'https://github.com/',
-'https://example.com'
-)"
-class="btn bg-blue-600 px-5 py-3 rounded-2xl font-semibold">
+id="loginBtn"
+class="btn bg-blue-600 px-6 py-4 rounded-2xl font-semibold w-full mt-5">
 
-Подробнее
+Войти
 
 </button>
 
-<a
-href="https://github.com"
-target="_blank"
-class="btn bg-white/10 px-5 py-3 rounded-2xl border border-white/10">
+<p
+id="loginError"
+class="text-red-400 mt-4 hidden">
 
-GitHub
+Неверный пароль
 
-</a>
+</p>
+
+</div>
+
+</section>
+
+<!-- SECRET CMS -->
+
+<section
+id="secretCMS"
+class="container py-10 hidden">
+
+<div class="card max-w-5xl mx-auto">
+
+<h3 class="text-4xl font-bold gradient-text mb-10 text-center">
+
+CMS / Admin Panel
+
+</h3>
+
+<div class="grid lg:grid-cols-2 gap-10">
+
+<div>
+
+<h4 class="text-2xl font-bold mb-6">
+Редактирование сайта
+</h4>
+
+<input
+id="titleInput"
+class="cms-input"
+placeholder="Название сайта"
+/>
+
+<textarea
+id="aboutInput"
+class="cms-input"
+placeholder="Текст о сайте"></textarea>
+
+<button
+id="saveBtn"
+class="btn mt-6 bg-blue-600 px-6 py-4 rounded-2xl font-semibold w-full">
+
+Сохранить изменения
+
+</button>
+
+</div>
+
+<div>
+
+<h4 class="text-2xl font-bold mb-6">
+Статус CMS
+</h4>
+
+<div class="space-y-5 text-gray-300">
+
+<div>✅ Admin authorization</div>
+<div>✅ LocalStorage CMS</div>
+<div>✅ Secure panel</div>
+<div>✅ Premium UI</div>
+<div>✅ Dynamic content editing</div>
+
+</div>
 
 </div>
 
@@ -186,118 +581,171 @@ GitHub
 
 </section>
 
-<!-- ДОБАВЬ ЭТО ПЕРЕД </body> -->
+<footer class="container py-4 text-center text-gray-500">
 
-<!-- MODAL -->
+© 2026 — Eskenderov Space
 
-<div
-id="projectModal"
-class="fixed inset-0 bg-black/70 backdrop-blur-xl hidden items-center justify-center z-[9999] p-6">
+</footer>
 
-<div class="card max-w-2xl w-full relative">
+<script>
 
-<button
-onclick="closeModal()"
-class="absolute top-5 right-5 text-2xl text-gray-400 hover:text-white">
+/* ANIMATION */
 
-✕
+const observer = new IntersectionObserver((entries)=>{
 
-</button>
+entries.forEach(entry=>{
 
-<img
-id="modalImage"
-class="w-full h-[300px] object-cover rounded-2xl mb-6">
+if(entry.isIntersecting){
 
-<h3
-id="modalTitle"
-class="text-4xl font-bold gradient-text mb-4">
-</h3>
-
-<p
-id="modalDescription"
-class="text-gray-300 leading-relaxed mb-8">
-</p>
-
-<div class="flex gap-4">
-
-<a
-id="modalGithub"
-href="#"
-target="_blank"
-class="btn bg-white/10 border border-white/10 px-6 py-4 rounded-2xl">
-
-GitHub
-
-</a>
-
-<a
-id="modalDemo"
-href="#"
-target="_blank"
-class="btn bg-blue-600 px-6 py-4 rounded-2xl font-semibold">
-
-Live Preview
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- ДОБАВЬ ЭТО В КОНЕЦ ТВОЕГО <script> -->
-
-/* MODAL */
-
-const projectModal =
-document.getElementById('projectModal');
-
-const modalTitle =
-document.getElementById('modalTitle');
-
-const modalDescription =
-document.getElementById('modalDescription');
-
-const modalImage =
-document.getElementById('modalImage');
-
-const modalGithub =
-document.getElementById('modalGithub');
-
-const modalDemo =
-document.getElementById('modalDemo');
-
-function openModal(title, description, image, github, demo){
-
-projectModal.classList.remove('hidden');
-projectModal.classList.add('flex');
-
-modalTitle.innerText = title;
-modalDescription.innerText = description;
-modalImage.src = image;
-modalGithub.href = github;
-modalDemo.href = demo;
-
-document.body.style.overflow = 'hidden';
-
-}
-
-function closeModal(){
-
-projectModal.classList.add('hidden');
-projectModal.classList.remove('flex');
-
-document.body.style.overflow = 'auto';
-
-}
-
-window.addEventListener('click',(e)=>{
-
-if(e.target === projectModal){
-
-closeModal();
+entry.target.classList.add('show');
 
 }
 
 });
+
+},{
+threshold:0.2
+});
+
+document.querySelectorAll('.fade-up').forEach(el=>{
+observer.observe(el);
+});
+
+/* NAVBAR */
+
+window.addEventListener('scroll',()=>{
+
+const nav=document.querySelector('.navbar');
+
+if(window.scrollY>40){
+
+nav.classList.add('scrolled');
+
+}else{
+
+nav.classList.remove('scrolled');
+
+}
+
+});
+
+/* CMS */
+
+const PASSWORD = "Ee221352";
+
+const loginBtn =
+document.getElementById('loginBtn');
+
+const adminPassword =
+document.getElementById('adminPassword');
+
+const secretCMS =
+document.getElementById('secretCMS');
+
+const loginError =
+document.getElementById('loginError');
+
+const titleInput =
+document.getElementById('titleInput');
+
+const aboutInput =
+document.getElementById('aboutInput');
+
+const saveBtn =
+document.getElementById('saveBtn');
+
+const aboutText =
+document.getElementById('aboutText');
+
+/* LOAD */
+
+titleInput.value =
+localStorage.getItem('siteTitle') ||
+'Eskenderov Space';
+
+aboutInput.value =
+localStorage.getItem('aboutText') ||
+aboutText.innerText;
+
+document.title =
+titleInput.value;
+
+aboutText.innerText =
+aboutInput.value;
+
+/* LOGIN */
+
+loginBtn.addEventListener('click',()=>{
+
+const enteredPassword =
+adminPassword.value.trim();
+
+if(enteredPassword === PASSWORD){
+
+secretCMS.classList.remove('hidden');
+
+loginError.classList.add('hidden');
+
+window.scrollTo({
+top: secretCMS.offsetTop - 100,
+behavior:'smooth'
+});
+
+}else{
+
+loginError.classList.remove('hidden');
+
+}
+
+});
+
+/* SAVE */
+
+saveBtn.addEventListener('click',()=>{
+
+localStorage.setItem(
+'siteTitle',
+titleInput.value
+);
+
+localStorage.setItem(
+'aboutText',
+aboutInput.value
+);
+
+document.title =
+titleInput.value;
+
+aboutText.innerText =
+aboutInput.value;
+
+alert('Изменения сохранены');
+
+});
+
+/* MOUSE EFFECT */
+
+document.addEventListener('mousemove',(e)=>{
+
+const blobs =
+document.querySelectorAll('.blob');
+
+blobs.forEach((blob,index)=>{
+
+const speed=(index+1)*25;
+
+blob.style.transform=`
+translate(
+${e.clientX/speed}px,
+${e.clientY/speed}px
+)
+`;
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
