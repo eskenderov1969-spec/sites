@@ -69,16 +69,7 @@ background-size:300% 300%;
 animation:gradientMove 4s infinite;
 }
 
-#cursorGlow{
-position:fixed;
-width:320px;
-height:320px;
-pointer-events:none;
-border-radius:50%;
-background:radial-gradient(circle,rgba(59,130,246,.14),transparent 70%);
-transform:translate(-50%,-50%);
-z-index:-1;
-}
+
 
 #particles{
 position:fixed;
@@ -273,7 +264,7 @@ color:#374151 !important;
 </div>
 </div>
 
-<div id="cursorGlow"></div>
+
 <div id="particles"></div>
 
 <div class="bg-grid"></div>
@@ -426,7 +417,7 @@ color:#374151 !important;
 <div class="flex flex-wrap justify-center gap-4 mb-10">
 <a href="https://t.me/Essskenderovvv" target="_blank" class="btn bg-blue-500 px-6 py-4 rounded-2xl font-semibold">Telegram</a>
 <a href="https://wa.me/79282185570" target="_blank" class="btn bg-green-500 px-6 py-4 rounded-2xl font-semibold">WhatsApp</a>
-<a href="https://instagram.com/essskenderov" target="_blank" class="btn bg-pink-500 px-6 py-4 rounded-2xl font-semibold">Instagram</a>
+
 </div>
 
 <form class="space-y-4 mt-8">
@@ -474,11 +465,7 @@ nav.classList.remove('scrolled');
 }
 });
 
-const glow=document.getElementById('cursorGlow');
-window.addEventListener('mousemove',(e)=>{
-glow.style.left=e.clientX+'px';
-glow.style.top=e.clientY+'px';
-});
+
 
 const particles=document.getElementById('particles');
 for(let i=0;i<80;i++){
