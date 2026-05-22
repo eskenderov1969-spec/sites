@@ -1,3 +1,5 @@
+<!-- ЗАМЕНИ СТАРЫЙ БЛОК PORTFOLIO НА ЭТОТ -->
+
 <!-- PORTFOLIO -->
 
 <section id="portfolio"
@@ -48,7 +50,9 @@ Business Landing
 </h4>
 
 <p class="text-gray-400 mt-3 relative z-10">
+
 Premium landing page с glassmorphism дизайном.
+
 </p>
 
 <div class="flex gap-3 mt-6 relative z-10">
@@ -62,14 +66,18 @@ onclick="openModal(
 'https://example.com'
 )"
 class="btn bg-blue-600 px-5 py-3 rounded-2xl font-semibold">
+
 Подробнее
+
 </button>
 
 <a
 href="https://github.com"
 target="_blank"
 class="btn bg-white/10 px-5 py-3 rounded-2xl border border-white/10">
+
 GitHub
+
 </a>
 
 </div>
@@ -91,7 +99,9 @@ Developer CRM
 </h4>
 
 <p class="text-gray-400 mt-3 relative z-10">
+
 CRM система и admin dashboard.
+
 </p>
 
 <div class="flex gap-3 mt-6 relative z-10">
@@ -105,14 +115,18 @@ onclick="openModal(
 'https://example.com'
 )"
 class="btn bg-blue-600 px-5 py-3 rounded-2xl font-semibold">
+
 Подробнее
+
 </button>
 
 <a
 href="https://github.com"
 target="_blank"
 class="btn bg-white/10 px-5 py-3 rounded-2xl border border-white/10">
+
 GitHub
+
 </a>
 
 </div>
@@ -134,7 +148,9 @@ Mobile UI
 </h4>
 
 <p class="text-gray-400 mt-3 relative z-10">
+
 Premium mobile interface и UI system.
+
 </p>
 
 <div class="flex gap-3 mt-6 relative z-10">
@@ -148,14 +164,18 @@ onclick="openModal(
 'https://example.com'
 )"
 class="btn bg-blue-600 px-5 py-3 rounded-2xl font-semibold">
+
 Подробнее
+
 </button>
 
 <a
 href="https://github.com"
 target="_blank"
 class="btn bg-white/10 px-5 py-3 rounded-2xl border border-white/10">
+
 GitHub
+
 </a>
 
 </div>
@@ -165,6 +185,8 @@ GitHub
 </div>
 
 </section>
+
+<!-- ДОБАВЬ ЭТО ПЕРЕД </body> -->
 
 <!-- MODAL -->
 
@@ -177,7 +199,9 @@ class="fixed inset-0 bg-black/70 backdrop-blur-xl hidden items-center justify-ce
 <button
 onclick="closeModal()"
 class="absolute top-5 right-5 text-2xl text-gray-400 hover:text-white">
+
 ✕
+
 </button>
 
 <img
@@ -201,7 +225,9 @@ id="modalGithub"
 href="#"
 target="_blank"
 class="btn bg-white/10 border border-white/10 px-6 py-4 rounded-2xl">
+
 GitHub
+
 </a>
 
 <a
@@ -209,7 +235,9 @@ id="modalDemo"
 href="#"
 target="_blank"
 class="btn bg-blue-600 px-6 py-4 rounded-2xl font-semibold">
+
 Live Preview
+
 </a>
 
 </div>
@@ -218,7 +246,7 @@ Live Preview
 
 </div>
 
-<script>
+<!-- ДОБАВЬ ЭТО В КОНЕЦ ТВОЕГО <script> -->
 
 /* MODAL */
 
@@ -267,9 +295,9 @@ document.body.style.overflow = 'auto';
 window.addEventListener('click',(e)=>{
 
 if(e.target === projectModal){
+
 closeModal();
+
 }
 
 });
-
-</script>
