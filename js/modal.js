@@ -1,3 +1,19 @@
+let currentSlide = 0;
+
+let gallery = [];
+
+const modalVideo =
+document.getElementById("modalVideo");
+
+const thumbs =
+document.getElementById("galleryThumbs");
+
+const prev =
+document.getElementById("galleryPrev");
+
+const next =
+document.getElementById("galleryNext");
+
 const modal=document.getElementById("projectModal");
 
 const modalImage=document.getElementById("modalImage");
