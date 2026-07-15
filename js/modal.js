@@ -99,3 +99,38 @@ modal.classList.remove("active");
 }
 
 });
+function renderSlide(){
+
+thumbs.innerHTML="";
+
+modalVideo.style.display="none";
+
+modalImage.style.display="block";
+
+modalImage.src=gallery[currentSlide];
+
+gallery.forEach((img,index)=>{
+
+const thumb=document.createElement("img");
+
+thumb.src=img;
+
+if(index===currentSlide){
+
+thumb.classList.add("active");
+
+}
+
+thumb.onclick=()=>{
+
+currentSlide=index;
+
+renderSlide();
+
+};
+
+thumbs.appendChild(thumb);
+
+});
+
+}
