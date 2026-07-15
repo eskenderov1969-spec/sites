@@ -44,14 +44,35 @@ PROJECT MODAL
 
         </button>
 
-        <div class="modal-gallery">
+       <div class="modal-gallery">
 
-            <img
-                id="modalImage"
-                src=""
-                alt="Project">
+    <button id="galleryPrev" class="gallery-arrow left">
 
-        </div>
+        ❮
+
+    </button>
+
+    <div class="gallery-view">
+
+        <img id="modalImage" src="" alt="">
+
+        <video
+            id="modalVideo"
+            controls
+            style="display:none;"
+        ></video>
+
+    </div>
+
+    <button id="galleryNext" class="gallery-arrow right">
+
+        ❯
+
+    </button>
+
+    <div id="galleryThumbs" class="gallery-thumbs"></div>
+
+</div>
 
         <div class="modal-info">
 
