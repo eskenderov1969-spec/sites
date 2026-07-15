@@ -229,23 +229,256 @@
 
     <!-- PORTFOLIO -->
 
-    <section id="portfolio">
+   <section id="portfolio" class="container py-24 fade-up">
 
-        <div class="container">
+    <div class="text-center mb-16">
 
-            <h2>
+        <h2 class="text-5xl font-black gradient-text">
+            Портфолио
+        </h2>
 
-                Проекты
+        <p class="text-gray-400 mt-5 text-lg">
+            Некоторые из последних проектов
+        </p>
 
-            </h2>
+    </div>
 
-            <!-- фильтр добавим позже -->
+    <!-- FILTER -->
 
-            <div id="portfolioGrid"></div>
+    <div class="filters">
 
-        </div>
+        <button class="filter-btn active" data-filter="all">
+            Все
+        </button>
 
-    </section>
+        <button class="filter-btn" data-filter="landing">
+            Landing
+        </button>
+
+        <button class="filter-btn" data-filter="dashboard">
+            Dashboard
+        </button>
+
+        <button class="filter-btn" data-filter="cms">
+            CMS
+        </button>
+
+        <button class="filter-btn" data-filter="ai">
+            AI
+        </button>
+
+    </div>
+
+    <!-- GRID -->
+
+    <div id="portfolioGrid">
+
+        <!-- PROJECT 1 -->
+
+        <article class="project-card" data-category="landing">
+
+            <div class="project-image">
+
+                <video
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata"
+                    poster="images/project1.jpg"
+                >
+
+                    <source
+                        src="videos/project1.mp4"
+                        type="video/mp4">
+
+                </video>
+
+            </div>
+
+            <div class="project-content">
+
+                <h3>Business Landing</h3>
+
+                <p>
+
+                    Современный лендинг с Glass UI,
+                    GSAP-анимациями и высокой скоростью.
+
+                </p>
+
+                <div class="flex gap-2 flex-wrap mt-5">
+
+                    <span class="skill-pill">HTML</span>
+
+                    <span class="skill-pill">CSS</span>
+
+                    <span class="skill-pill">GSAP</span>
+
+                </div>
+
+                <div class="flex gap-3 mt-7">
+
+                    <a
+                        href="#"
+                        class="btn primary">
+
+                        Live Demo
+
+                    </a>
+
+                    <a
+                        href="#"
+                        class="btn secondary">
+
+                        GitHub
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        <!-- PROJECT 2 -->
+
+        <article
+            class="project-card"
+            data-category="dashboard">
+
+            <div class="project-image">
+
+                <video
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata"
+                    poster="images/project2.jpg">
+
+                    <source
+                        src="videos/project2.mp4"
+                        type="video/mp4">
+
+                </video>
+
+            </div>
+
+            <div class="project-content">
+
+                <h3>Analytics Dashboard</h3>
+
+                <p>
+
+                    Современная аналитическая панель
+                    управления с графиками.
+
+                </p>
+
+                <div class="flex gap-2 flex-wrap mt-5">
+
+                    <span class="skill-pill">Chart.js</span>
+
+                    <span class="skill-pill">API</span>
+
+                    <span class="skill-pill">JavaScript</span>
+
+                </div>
+
+                <div class="flex gap-3 mt-7">
+
+                    <a
+                        href="#"
+                        class="btn primary">
+
+                        Live Demo
+
+                    </a>
+
+                    <a
+                        href="#"
+                        class="btn secondary">
+
+                        GitHub
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        <!-- PROJECT 3 -->
+
+        <article
+            class="project-card"
+            data-category="cms">
+
+            <div class="project-image">
+
+                <video
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata"
+                    poster="images/project3.jpg">
+
+                    <source
+                        src="videos/project3.mp4"
+                        type="video/mp4">
+
+                </video>
+
+            </div>
+
+            <div class="project-content">
+
+                <h3>Premium CMS</h3>
+
+                <p>
+
+                    Система управления контентом
+                    с современной админ-панелью.
+
+                </p>
+
+                <div class="flex gap-2 flex-wrap mt-5">
+
+                    <span class="skill-pill">Node.js</span>
+
+                    <span class="skill-pill">CMS</span>
+
+                    <span class="skill-pill">Express</span>
+
+                </div>
+
+                <div class="flex gap-3 mt-7">
+
+                    <a
+                        href="#"
+                        class="btn primary">
+
+                        Live Demo
+
+                    </a>
+
+                    <a
+                        href="#"
+                        class="btn secondary">
+
+                        GitHub
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
 
     <!-- CALCULATOR -->
 
